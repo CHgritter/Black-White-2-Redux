@@ -937,7 +937,7 @@ begin script Land3TheEvilWay
     PlayersTownCentre = 0
     Villager = 0
     Armoury = 0
-    OutOfTownPos = marker at {1200.003, 378.248, 1668.081}
+    OutOfTownPos = marker at {1288.790, 380.810, 1626.401}
     ArmyFlag = 0
     StopReminders = 0
     NearestOre = 0
@@ -1365,11 +1365,13 @@ start
             wait 2 seconds
             stop evil spirit pointing
             wait until read
+            /*
         //EA: "The flags also tell you what rank the platoon is. Those pips along the top indicate the rank, from raw recruits to seasoned veterans."
             say "BW2T_SCRIPT_03FINAL_FLAGS_TUTORIAL_40"
             wait until read
             make evil spirit fly across 0.8 down 0.8
             highlight toolbar item variable MENU_HIGHLIGHT_ARMYICON 
+            */
         //EA: "If you click on the flags in the bottom right with the Action button you pick up the flag and gain control of the platoon. Click on the flag with the Move button and you will go directly to the platoon."
             say "BW2T_SCRIPT_03FINAL_FLAGS_TUTORIAL_50"
             wait until read
@@ -1501,7 +1503,7 @@ start
     
     set CommentTimer time to 180 seconds
     
-    //DestinationBeam = create visual effect "gp_s_rayfxball.ves" strength 1 scale 1.5 at {L3MinorTown2} + {0,10,0} time -1  
+    DestinationBeam = create visual effect "gp_s_rayfxball.ves" strength 1 scale 1.5 at {L3MinorTown2} + {0,10,0} time -1  
     Comment = 0
     
     while PLAYER of L3MinorTown2 != 0
@@ -1555,8 +1557,8 @@ start
             AttackCommentSaid = BT_True
             disable L3MinorTown2TownCenter pulse with fadetime 0
             stop sound "SCRIPT_EVILWAYPULSE"
-            //stop visual effect DestinationBeam
-            //delete DestinationBeam
+            stop visual effect DestinationBeam
+            delete DestinationBeam
 
             begin dialogue
                 eject evil spirit
@@ -1575,8 +1577,8 @@ start
     
     disable L3MinorTown2TownCenter pulse with fadetime 0
     stop sound "SCRIPT_EVILWAYPULSE"
-    //stop visual effect DestinationBeam
-    //delete DestinationBeam
+    stop visual effect DestinationBeam
+    delete DestinationBeam
     enable objective window
     set player 0 objective TRIBUTE_OBJECTIVE_LAND_8 value 1
         
