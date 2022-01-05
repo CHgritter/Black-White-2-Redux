@@ -160,24 +160,24 @@ start
 				elsif TombNumber == 5
 					TombTT1 = create tooltip on Tomb with text "BW2T_SCRIPT_TOMB_200"
 				elsif TombNumber == 6
-//					TombTT1 = create tooltip on Tomb with text "BW2T_SCRIPT_TOMB_210"		
-				elsif TombNumber == 7
-//					TombTT1 = create tooltip on Tomb with text "BW2T_SCRIPT_TOMB_220"
-				elsif TombNumber == 8
-//					TombTT1 = create tooltip on Tomb with text "BW2T_SCRIPT_TOMB_230"
-				elsif TombNumber == 9
-//					TombTT1 = create tooltip on Tomb with text "BW2T_SCRIPT_TOMB_240"		
-				elsif TombNumber == 10
-//					TombTT1 = create tooltip on Tomb with text "BW2T_SCRIPT_TOMB_250"
-				elsif TombNumber == 11
-//					TombTT1 = create tooltip on Tomb with text "BW2T_SCRIPT_TOMB_260"
-				elsif TombNumber == 12
-//					TombTT1 = create tooltip on Tomb with text "BW2T_SCRIPT_TOMB_270"		
-				elsif TombNumber == 13
-//					TombTT1 = create tooltip on Tomb with text "BW2T_SCRIPT_TOMB_280"	
-				end if
-				//TombTT1 = create tooltip on Tomb with text "BW2T_SCRIPT_TOMB_150"
-			end if
+//                    TombTT1 = create tooltip on Tomb with text "BW2T_SCRIPT_TOMB_210"        
+                elsif TombNumber == 7
+//                    TombTT1 = create tooltip on Tomb with text "BW2T_SCRIPT_TOMB_220"
+                elsif TombNumber == 8
+//                    TombTT1 = create tooltip on Tomb with text "BW2T_SCRIPT_TOMB_230"
+                elsif TombNumber == 9
+//                    TombTT1 = create tooltip on Tomb with text "BW2T_SCRIPT_TOMB_240"        
+                elsif TombNumber == 10
+//                    TombTT1 = create tooltip on Tomb with text "BW2T_SCRIPT_TOMB_250"
+                elsif TombNumber == 11
+//                    TombTT1 = create tooltip on Tomb with text "BW2T_SCRIPT_TOMB_260"
+                elsif TombNumber == 12
+//                    TombTT1 = create tooltip on Tomb with text "BW2T_SCRIPT_TOMB_270"        
+                elsif TombNumber == 13
+//                    TombTT1 = create tooltip on Tomb with text "BW2T_SCRIPT_TOMB_280"    
+                end if
+                //TombTT1 = create tooltip on Tomb with text "BW2T_SCRIPT_TOMB_150"
+            end if
 
 			wait until hand position not near {Tomb} radius CheckDist + 1
 			

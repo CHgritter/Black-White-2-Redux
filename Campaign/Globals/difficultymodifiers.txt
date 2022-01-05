@@ -2,8 +2,6 @@
 //              Difficulties
 //    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
-//    Start date:     16.12.18            By: Boxhead
-//    Update date:    18.12.18            By: Boxhead
 ///////////////////////////////////////////////////////////////////////////////
 
 define script DifficultySelection
@@ -277,7 +275,7 @@ start
     DifficultyTemp = persistent data "DIFFICULTY_ID"
     Difficulty = DifficultyTemp 
     if Difficulty == 0
-        Difficulty = 2
+        Difficulty = 3
     end if
 
     //RecruitSizeModifier: Size of enemy platoons
@@ -285,59 +283,59 @@ start
     //EpicModifier: Delay between epics/enemy miracles
     //BuilderModifier: Delay between enemy gain of villagers and building additional houses
     //ImpressivenessModifier: Multiplier for needed impressiveness
-    if DifficultyTemp == 1
+    if Difficulty == 1
         //Difficulty = Very Easy
         RecruitSizeModifier = 0.5
-        RecruitModifier = 4.5
+        RecruitModifier = 3.0
         EpicModifier = 2.0
-        BuilderModifier = 2.0
-        ImpressivenessModifier = 0.75
-
-    elsif DifficultyTemp == 2
-        //Difficulty = Easy
-        RecruitSizeModifier = 0.75
-        RecruitModifier = 3.25
-        EpicModifier = 1.5
         BuilderModifier = 1.5
         ImpressivenessModifier = 0.75
 
-    elsif DifficultyTemp == 3
+    elsif Difficulty == 2
+        //Difficulty = Easy
+        RecruitSizeModifier = 0.75
+        RecruitModifier = 2.5
+        EpicModifier = 1.5
+        BuilderModifier = 1.25
+        ImpressivenessModifier = 0.75
+
+    elsif Difficulty == 3
         //Difficulty = Normal
         RecruitSizeModifier = 1.0
-        RecruitModifier = 2.5
+        RecruitModifier = 2.0
         EpicModifier = 1.25
-        BuilderModifier = 1.25
+        BuilderModifier = 1.0
         ImpressivenessModifier = 1.0
 
-    elsif DifficultyTemp == 4
+    elsif Difficulty == 4
         //Difficulty = Hard
         RecruitSizeModifier = 1.0
         RecruitModifier = 1.25
         EpicModifier = 1.0
-        BuilderModifier = 1.0
+        BuilderModifier = 0.75
         ImpressivenessModifier = 1.0
 
-    elsif DifficultyTemp == 5
+    elsif Difficulty == 5
         //Difficulty = Very Hard
-        RecruitSizeModifier = 1.25
+        RecruitSizeModifier = 1.5
         RecruitModifier = 0.75
         EpicModifier = 0.75
-        BuilderModifier = 1.0
+        BuilderModifier = 0.5
         ImpressivenessModifier = 1.25
 
     else
-        //Difficulty = Easy
+        //Difficulty = Normal
         PD_ForcedSaving = 1
         wait until PD_ForcedSaving == 0 or 10 seconds
         stop script "SavePersistentDataSetData"
-        set persistent data "DIFFICULTY_ID" to 2
+        set persistent data "DIFFICULTY_ID" to 3
         run script SavePersistentDataGetData
 
-        RecruitSizeModifier = 0.75
-        RecruitModifier = 3.25
-        EpicModifier = 1.5
-        BuilderModifier = 1.5
-        ImpressivenessModifier = 0.75
+        RecruitSizeModifier = 1.0
+        RecruitModifier = 2.0
+        EpicModifier = 1.25
+        BuilderModifier = 1.0
+        ImpressivenessModifier = 1.0
 
     end if
 

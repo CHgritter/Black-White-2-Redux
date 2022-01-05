@@ -1,6 +1,25 @@
 // --- Other Globals
 define script GL_Globals
 
+global NORSERECRUITMENTMODIFIER = 3.0
+global JAPANESERECRUITMENTMODIFIER = 2.0
+global AZTECRECRUITMENTMODIFIER = 1.5
+global TALUSRECRUITMENTMODIFIER = 1.0
+
+//Delays based on attackers from AttackRndAttackLogic script
+global NORSEDELAYBETWEENATTACK = 600
+global JAPANESEDELAYBETWEENATTACK = 600
+global AZTECDELAYBETWEENATTACK = 450
+global TALUSDELAYBETWEENATTACK = 150
+
+global NORSEWAITUNTILFIRSTATTACK = 450
+global JAPANESEWAITUNTILFIRSTATTACK = 300
+global AZTECWAITUNTILFIRSTATTACK = 150
+global TALUSWAITUNTILFIRSTATTACK = 50
+
+global PLAYEREIMPRESSIVENESSMULTIPLIERALIGN = 0
+global PLAYEREIMPRESSIVENESSMULTIPLIER = 1.0
+
 global GB_DialogueIsRunning = 0
 global GB_PlayerTown = 0
 global MyCreature = 0
@@ -8,6 +27,7 @@ global AISpellsActivated = 0
 global GeneralAttackTimer = 0
 global TownCapturePlatoons[3]
 global CH_InfluenceCheatActivated = 0
+global PlayerTownStartSize = 1000
 
 run script GL_Globals
 
@@ -15,7 +35,20 @@ begin script GL_Globals
 
 start
 
+    PLAYEREIMPRESSIVENESSMULTIPLIERALIGN = (get player 0 alignment / 4)
+    if PLAYEREIMPRESSIVENESSMULTIPLIERALIGN < 0
+        PLAYEREIMPRESSIVENESSMULTIPLIER = PLAYEREIMPRESSIVENESSMULTIPLIER + (abs PLAYEREIMPRESSIVENESSMULTIPLIERALIGN / 2)
+    else
+        PLAYEREIMPRESSIVENESSMULTIPLIER = PLAYEREIMPRESSIVENESSMULTIPLIER - (PLAYEREIMPRESSIVENESSMULTIPLIERALIGN / 4)
+    end if
     GeneralAttackTimer = create timer for 0 seconds
+
+    //PlayerTown is always town with id 0 except in land14
+    if get land number != 14
+        PlayerTownStartSize = size of get town with id 0
+    else
+        PlayerTownStartSize = size of get town with id 3
+    end if
 
 end script GL_Globals
 
