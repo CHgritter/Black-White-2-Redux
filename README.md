@@ -1,3 +1,2 @@
-# Black-White-2-Redux
-Source of the Redux mod for Black & White 2.
-Feel free to use any files you need, but credits would be nice.
+# Black-White-2-Redux-1.7.2-fan-patch
+These are the script files for the fanmade 1.7.2 patch for Black & White 2 Redux.
