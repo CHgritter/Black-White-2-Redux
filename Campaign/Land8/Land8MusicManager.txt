@@ -2,8 +2,6 @@
 //    Land 8 Music Manager
 //    ~~~~~~~~~~~~~~~~~~~~~~
 //
-//    Start date:     01.06.2018            By:    Boxhead
-//    Update date:        01.06.2018            By: Boxhead
 ///////////////////////////////////////////////////////////////////////////////
 
 define script LC8_MusicManager
@@ -24,6 +22,8 @@ begin script LC8_MusicManager
 start
 
 wait until LC8_LargeSiegeOver == 1
+
+wait 300 seconds
 
 begin loop
 

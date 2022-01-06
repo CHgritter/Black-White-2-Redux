@@ -2,8 +2,6 @@
 //    Land 8 Creature AI
 //    ~~~~~~~~~~~~~~~~~~~
 //
-//    Start date:  28.03.18            By: Boxhead
-//    Update date: 06.04.18            By: Boxhead
 ///////////////////////////////////////////////////////////////////////////////
 
 //-----------------------------------------------------------------------------
@@ -50,7 +48,7 @@ start
 
     set creature LC8_EnemyCreature CREATURE_SIZE 0.8
     CREATURE_STRENGTH of LC8_EnemyCreature = 0.75
-    CREATURE_ALIGNMENT of LC8_EnemyCreature = -0.4
+    ALIGNMENT of LC8_EnemyCreature = -0.4
     CREATURE_FATNESS of LC8_EnemyCreature = 0.4
 
     if HardMode == 1
