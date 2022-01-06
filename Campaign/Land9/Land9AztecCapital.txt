@@ -2,8 +2,6 @@
 //    Land 9 Aztec-Strategy
 //    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
-//    Start date:     29.03.18            By: Boxhead
-//    Update date:    04.04.18            By: Boxhead
 ///////////////////////////////////////////////////////////////////////////////
 
 define script LC9_Aztec_Capital_Impressiveness
@@ -89,330 +87,6 @@ start
     Threshold = Threshold / 3
     set migration threshold from AztecCapital to PlayerTown AZTEC_CAPITAL_IMPRESSIVENESS - Threshold
 
-    if PLAYER of MinorTown1 == 0
-        enable migration from MinorTown2 to MinorTown1
-        enable migration from MinorTown3 to MinorTown1
-        enable migration from MinorTown4 to MinorTown1
-        enable migration from MinorTown5 to MinorTown1
-        enable migration from MinorTown6 to MinorTown1
-        enable migration from MinorTown7 to MinorTown1
-        enable migration from MinorTown8 to MinorTown1
-        enable migration from AztecTown1 to MinorTown1
-        enable migration from AztecTown2 to MinorTown1
-        enable migration from AztecTown3 to MinorTown1
-        enable migration from AztecCapital to MinorTown1
-        
-    elsif PLAYER of MinorTown1 >= 1
-        disable migration from MinorTown2 to MinorTown1
-        disable migration from MinorTown3 to MinorTown1
-        disable migration from MinorTown4 to MinorTown1
-        disable migration from MinorTown5 to MinorTown1
-        disable migration from MinorTown6 to MinorTown1
-        disable migration from MinorTown7 to MinorTown1
-        disable migration from MinorTown8 to MinorTown1
-        disable migration from AztecTown1 to MinorTown1
-        disable migration from AztecTown2 to MinorTown1
-        disable migration from AztecTown3 to MinorTown1
-        disable migration from AztecCapital to MinorTown1
-    end if
-
-    if PLAYER of MinorTown2 == 0
-        enable migration from MinorTown1 to MinorTown2
-        enable migration from MinorTown3 to MinorTown2
-        enable migration from MinorTown4 to MinorTown2
-        enable migration from MinorTown5 to MinorTown2
-        enable migration from MinorTown6 to MinorTown2
-        enable migration from MinorTown7 to MinorTown2
-        enable migration from MinorTown8 to MinorTown2
-        enable migration from AztecTown1 to MinorTown2
-        enable migration from AztecTown2 to MinorTown2
-        enable migration from AztecTown3 to MinorTown2
-        enable migration from AztecCapital to MinorTown2
-        
-    elsif PLAYER of MinorTown2 >= 1
-        disable migration from MinorTown1 to MinorTown2
-        disable migration from MinorTown3 to MinorTown2
-        disable migration from MinorTown4 to MinorTown2
-        disable migration from MinorTown5 to MinorTown2
-        disable migration from MinorTown6 to MinorTown2
-        disable migration from MinorTown7 to MinorTown2
-        disable migration from MinorTown8 to MinorTown2
-        disable migration from AztecTown1 to MinorTown2
-        disable migration from AztecTown2 to MinorTown2
-        disable migration from AztecTown3 to MinorTown2
-        disable migration from AztecCapital to MinorTown2
-    end if
-
-    if PLAYER of MinorTown3 == 0
-        enable migration from MinorTown1 to MinorTown3
-        enable migration from MinorTown2 to MinorTown3
-        enable migration from MinorTown4 to MinorTown3
-        enable migration from MinorTown5 to MinorTown3
-        enable migration from MinorTown6 to MinorTown3
-        enable migration from MinorTown7 to MinorTown3
-        enable migration from MinorTown8 to MinorTown3
-        enable migration from AztecTown1 to MinorTown3
-        enable migration from AztecTown2 to MinorTown3
-        enable migration from AztecTown3 to MinorTown3
-        enable migration from AztecCapital to MinorTown3
-        
-    elsif PLAYER of MinorTown3 >= 1
-        disable migration from MinorTown1 to MinorTown3
-        disable migration from MinorTown2 to MinorTown3
-        disable migration from MinorTown4 to MinorTown3
-        disable migration from MinorTown5 to MinorTown3
-        disable migration from MinorTown6 to MinorTown3
-        disable migration from MinorTown7 to MinorTown3
-        disable migration from MinorTown8 to MinorTown3
-        disable migration from AztecTown1 to MinorTown3
-        disable migration from AztecTown2 to MinorTown3
-        disable migration from AztecTown3 to MinorTown3
-        disable migration from AztecCapital to MinorTown3
-    end if
-
-    if PLAYER of MinorTown4 == 0
-        enable migration from MinorTown1 to MinorTown4
-        enable migration from MinorTown2 to MinorTown4
-        enable migration from MinorTown3 to MinorTown4
-        enable migration from MinorTown5 to MinorTown4
-        enable migration from MinorTown6 to MinorTown4
-        enable migration from MinorTown7 to MinorTown4
-        enable migration from MinorTown8 to MinorTown4
-        enable migration from AztecTown1 to MinorTown4
-        enable migration from AztecTown2 to MinorTown4
-        enable migration from AztecTown3 to MinorTown4
-        enable migration from AztecCapital to MinorTown4
-        
-    elsif PLAYER of MinorTown4 >= 1
-        disable migration from MinorTown1 to MinorTown4
-        disable migration from MinorTown2 to MinorTown4
-        disable migration from MinorTown3 to MinorTown4
-        disable migration from MinorTown5 to MinorTown4
-        disable migration from MinorTown6 to MinorTown4
-        disable migration from MinorTown7 to MinorTown4
-        disable migration from MinorTown8 to MinorTown4
-        disable migration from AztecTown1 to MinorTown4
-        disable migration from AztecTown2 to MinorTown4
-        disable migration from AztecTown3 to MinorTown4
-        disable migration from AztecCapital to MinorTown4
-    end if
-
-    if PLAYER of MinorTown5 == 0
-        enable migration from MinorTown1 to MinorTown5
-        enable migration from MinorTown2 to MinorTown5
-        enable migration from MinorTown3 to MinorTown5
-        enable migration from MinorTown4 to MinorTown5
-        enable migration from MinorTown6 to MinorTown5
-        enable migration from MinorTown7 to MinorTown5
-        enable migration from MinorTown8 to MinorTown5
-        enable migration from AztecTown1 to MinorTown5
-        enable migration from AztecTown2 to MinorTown5
-        enable migration from AztecTown3 to MinorTown5
-        enable migration from AztecCapital to MinorTown5
-        
-    elsif PLAYER of MinorTown5 >= 1
-        disable migration from MinorTown1 to MinorTown5
-        disable migration from MinorTown2 to MinorTown5
-        disable migration from MinorTown3 to MinorTown5
-        disable migration from MinorTown4 to MinorTown5
-        disable migration from MinorTown6 to MinorTown5
-        disable migration from MinorTown7 to MinorTown5
-        disable migration from MinorTown8 to MinorTown5
-        disable migration from AztecTown1 to MinorTown5
-        disable migration from AztecTown2 to MinorTown5
-        disable migration from AztecTown3 to MinorTown5
-        disable migration from AztecCapital to MinorTown5
-    end if
-
-    if PLAYER of MinorTown6 == 0
-        enable migration from MinorTown1 to MinorTown6
-        enable migration from MinorTown2 to MinorTown6
-        enable migration from MinorTown3 to MinorTown6
-        enable migration from MinorTown4 to MinorTown6
-        enable migration from MinorTown5 to MinorTown6
-        enable migration from MinorTown7 to MinorTown6
-        enable migration from MinorTown8 to MinorTown6
-        enable migration from AztecTown1 to MinorTown6
-        enable migration from AztecTown2 to MinorTown6
-        enable migration from AztecTown3 to MinorTown6
-        enable migration from AztecCapital to MinorTown6
-        
-    elsif PLAYER of MinorTown6 >= 1
-        disable migration from MinorTown1 to MinorTown6
-        disable migration from MinorTown2 to MinorTown6
-        disable migration from MinorTown3 to MinorTown6
-        disable migration from MinorTown4 to MinorTown6
-        disable migration from MinorTown5 to MinorTown6
-        disable migration from MinorTown7 to MinorTown6
-        disable migration from MinorTown8 to MinorTown6
-        disable migration from AztecTown1 to MinorTown6
-        disable migration from AztecTown2 to MinorTown6
-        disable migration from AztecTown3 to MinorTown6
-        disable migration from AztecCapital to MinorTown6
-    end if
-
-    if PLAYER of MinorTown7 == 0
-        enable migration from MinorTown1 to MinorTown7
-        enable migration from MinorTown2 to MinorTown7
-        enable migration from MinorTown3 to MinorTown7
-        enable migration from MinorTown4 to MinorTown7
-        enable migration from MinorTown5 to MinorTown7
-        enable migration from MinorTown6 to MinorTown7
-        enable migration from MinorTown8 to MinorTown7
-        enable migration from AztecTown1 to MinorTown7
-        enable migration from AztecTown2 to MinorTown7
-        enable migration from AztecTown3 to MinorTown7
-        enable migration from AztecCapital to MinorTown7
-        
-    elsif PLAYER of MinorTown7 >= 1
-        disable migration from MinorTown1 to MinorTown7
-        disable migration from MinorTown2 to MinorTown7
-        disable migration from MinorTown3 to MinorTown7
-        disable migration from MinorTown4 to MinorTown7
-        disable migration from MinorTown5 to MinorTown7
-        disable migration from MinorTown6 to MinorTown7
-        disable migration from MinorTown8 to MinorTown7
-        disable migration from AztecTown1 to MinorTown7
-        disable migration from AztecTown2 to MinorTown7
-        disable migration from AztecTown3 to MinorTown7
-        disable migration from AztecCapital to MinorTown7
-    end if
-
-    if PLAYER of MinorTown8 == 0
-        enable migration from MinorTown1 to MinorTown8
-        enable migration from MinorTown2 to MinorTown8
-        enable migration from MinorTown3 to MinorTown8
-        enable migration from MinorTown4 to MinorTown8
-        enable migration from MinorTown5 to MinorTown8
-        enable migration from MinorTown6 to MinorTown8
-        enable migration from MinorTown7 to MinorTown8
-        enable migration from AztecTown1 to MinorTown8
-        enable migration from AztecTown2 to MinorTown8
-        enable migration from AztecTown3 to MinorTown8
-        enable migration from AztecCapital to MinorTown8
-        
-    elsif PLAYER of MinorTown8 >= 1
-        disable migration from MinorTown1 to MinorTown8
-        disable migration from MinorTown2 to MinorTown8
-        disable migration from MinorTown3 to MinorTown8
-        disable migration from MinorTown4 to MinorTown8
-        disable migration from MinorTown5 to MinorTown8
-        disable migration from MinorTown6 to MinorTown8
-        disable migration from MinorTown7 to MinorTown8
-        disable migration from AztecTown1 to MinorTown8
-        disable migration from AztecTown2 to MinorTown8
-        disable migration from AztecTown3 to MinorTown8
-        disable migration from AztecCapital to MinorTown8
-    end if
-
-    if PLAYER of AztecTown1 == 0
-        enable migration from MinorTown1 to AztecTown1
-        enable migration from MinorTown2 to AztecTown1
-        enable migration from MinorTown3 to AztecTown1
-        enable migration from MinorTown4 to AztecTown1
-        enable migration from MinorTown5 to AztecTown1
-        enable migration from MinorTown6 to AztecTown1
-        enable migration from MinorTown7 to AztecTown1
-        enable migration from MinorTown8 to AztecTown1
-        enable migration from AztecTown2 to AztecTown1
-        enable migration from AztecTown3 to AztecTown1
-        enable migration from AztecCapital to AztecTown1
-        
-    elsif PLAYER of AztecTown1 >= 1
-        disable migration from MinorTown1 to AztecTown1
-        disable migration from MinorTown2 to AztecTown1
-        disable migration from MinorTown3 to AztecTown1
-        disable migration from MinorTown4 to AztecTown1
-        disable migration from MinorTown5 to AztecTown1
-        disable migration from MinorTown6 to AztecTown1
-        disable migration from MinorTown7 to AztecTown1
-        disable migration from MinorTown8 to AztecTown1
-        disable migration from AztecTown2 to AztecTown1
-        disable migration from AztecTown3 to AztecTown1
-        disable migration from AztecCapital to AztecTown1
-    end if
-
-    if PLAYER of AztecTown2 == 0
-        enable migration from MinorTown1 to AztecTown2
-        enable migration from MinorTown2 to AztecTown2
-        enable migration from MinorTown3 to AztecTown2
-        enable migration from MinorTown4 to AztecTown2
-        enable migration from MinorTown5 to AztecTown2
-        enable migration from MinorTown6 to AztecTown2
-        enable migration from MinorTown7 to AztecTown2
-        enable migration from MinorTown8 to AztecTown2
-        enable migration from AztecTown1 to AztecTown2
-        enable migration from AztecTown3 to AztecTown2
-        enable migration from AztecCapital to AztecTown2
-        
-    elsif PLAYER of AztecTown2 >= 1
-        disable migration from MinorTown1 to AztecTown2
-        disable migration from MinorTown2 to AztecTown2
-        disable migration from MinorTown3 to AztecTown2
-        disable migration from MinorTown4 to AztecTown2
-        disable migration from MinorTown5 to AztecTown2
-        disable migration from MinorTown6 to AztecTown2
-        disable migration from MinorTown7 to AztecTown2
-        disable migration from MinorTown8 to AztecTown2
-        disable migration from AztecTown1 to AztecTown2
-        disable migration from AztecTown3 to AztecTown2
-        disable migration from AztecCapital to AztecTown2
-    end if
-
-    if PLAYER of AztecTown3 == 0
-        enable migration from MinorTown1 to AztecTown3
-        enable migration from MinorTown2 to AztecTown3
-        enable migration from MinorTown3 to AztecTown3
-        enable migration from MinorTown4 to AztecTown3
-        enable migration from MinorTown5 to AztecTown3
-        enable migration from MinorTown6 to AztecTown3
-        enable migration from MinorTown7 to AztecTown3
-        enable migration from MinorTown8 to AztecTown3
-        enable migration from AztecTown1 to AztecTown3
-        enable migration from AztecTown2 to AztecTown3
-        enable migration from AztecCapital to AztecTown3
-        
-    elsif PLAYER of AztecTown3 >= 1
-        disable migration from MinorTown1 to AztecTown3
-        disable migration from MinorTown2 to AztecTown3
-        disable migration from MinorTown3 to AztecTown3
-        disable migration from MinorTown4 to AztecTown3
-        disable migration from MinorTown5 to AztecTown3
-        disable migration from MinorTown6 to AztecTown3
-        disable migration from MinorTown7 to AztecTown3
-        disable migration from MinorTown8 to AztecTown3
-        disable migration from AztecTown1 to AztecTown3
-        disable migration from AztecTown2 to AztecTown3
-        disable migration from AztecCapital to AztecTown3
-    end if
-
-    if PLAYER of AztecCapital == 0
-        enable migration from MinorTown1 to AztecCapital
-        enable migration from MinorTown2 to AztecCapital
-        enable migration from MinorTown3 to AztecCapital
-        enable migration from MinorTown4 to AztecCapital
-        enable migration from MinorTown5 to AztecCapital
-        enable migration from MinorTown6 to AztecCapital
-        enable migration from MinorTown7 to AztecCapital
-        enable migration from MinorTown8 to AztecCapital
-        enable migration from AztecTown1 to AztecCapital
-        enable migration from AztecTown2 to AztecCapital
-        enable migration from AztecTown3 to AztecCapital
-        
-    elsif PLAYER of AztecCapital >= 1
-        disable migration from MinorTown1 to AztecCapital
-        disable migration from MinorTown2 to AztecCapital
-        disable migration from MinorTown3 to AztecCapital
-        disable migration from MinorTown4 to AztecCapital
-        disable migration from MinorTown5 to AztecCapital
-        disable migration from MinorTown6 to AztecCapital
-        disable migration from MinorTown7 to AztecCapital
-        disable migration from MinorTown8 to AztecCapital
-        disable migration from AztecTown1 to AztecCapital
-        disable migration from AztecTown2 to AztecCapital
-        disable migration from AztecTown3 to AztecCapital
-    end if
-
 end script LC9_Aztec_Capital_Impressiveness
 
 begin script LC9_TownConversion
@@ -444,6 +118,19 @@ begin script LC9_TownConversion
     
 start
 
+disable migration from PlayerTown to MinorTown1
+disable migration from PlayerTown to MinorTown2
+disable migration from PlayerTown to MinorTown3
+disable migration from PlayerTown to MinorTown4
+disable migration from PlayerTown to MinorTown5
+disable migration from PlayerTown to MinorTown6
+disable migration from PlayerTown to MinorTown7
+disable migration from PlayerTown to MinorTown8
+disable migration from PlayerTown to AztecTown1
+disable migration from PlayerTown to AztecTown2
+disable migration from PlayerTown to AztecTown3
+disable migration from PlayerTown to AztecCapital
+
 begin loop
 
     isConverted1 = variable get town MinorTown1 method of last conversion
@@ -460,18 +147,20 @@ begin loop
     isConverted12 = variable get town AztecCapital method of last conversion
 
     if isConverted1 != 0 and a == 0
-        if PLAYER of MinorTown1 == 0 or get town MinorTown1 is migrating to == PlayerTown
-            a = 1
-            TownsConverted = TownsConverted + 1
-            if isConverted1 == 1
-                TownsAggressiveConverted = TownsAggressiveConverted + 1
-            elsif isConverted1 == 2
-                TownsPeacefulConverted = TownsPeacefulConverted + 1
+        if variable get town MinorTown1 status == variable TOWN_STATUS_MIGRATION_STARTED or PLAYER of MinorTown1 == 0
+            if PLAYER of get town MinorTown1 is migrating to == 0 or PLAYER of MinorTown1 == 0
+                a = 1
+                TownsConverted = TownsConverted + 1
+                if isConverted1 == 1
+                    TownsAggressiveConverted = TownsAggressiveConverted + 1
+                elsif isConverted1 == 2
+                    TownsPeacefulConverted = TownsPeacefulConverted + 1
+                end if
             end if
         end if
     end if
 
-    if isConverted1 != 0
+    if isConverted1 == 1
         if PLAYER of AztecCapital == 1
             disable migration from MinorTown1 to MinorTown2
             disable migration from MinorTown1 to MinorTown3
@@ -499,21 +188,36 @@ begin loop
             enable migration from MinorTown1 to AztecCapital
             enable migration from MinorTown1 to PlayerTown
         end if
+    else
+        enable migration from MinorTown1 to MinorTown2
+        enable migration from MinorTown1 to MinorTown3
+        enable migration from MinorTown1 to MinorTown4
+        enable migration from MinorTown1 to MinorTown5
+        enable migration from MinorTown1 to MinorTown6
+        enable migration from MinorTown1 to MinorTown7
+        enable migration from MinorTown1 to MinorTown8
+        enable migration from MinorTown1 to AztecTown1
+        enable migration from MinorTown1 to AztecTown2
+        enable migration from MinorTown1 to AztecTown3
+        enable migration from MinorTown1 to AztecCapital
+        enable migration from MinorTown1 to PlayerTown
     end if
     
     if isConverted2 != 0 and b == 0
-        if PLAYER of MinorTown2 == 0 or get town MinorTown2 is migrating to == PlayerTown
-            b = 1
-            TownsConverted = TownsConverted + 1
-            if isConverted2 == 1
-                TownsAggressiveConverted = TownsAggressiveConverted + 1
-            elsif isConverted2 == 2
-                TownsPeacefulConverted = TownsPeacefulConverted + 1
+        if variable get town MinorTown2 status == variable TOWN_STATUS_MIGRATION_STARTED or PLAYER of MinorTown2 == 0
+            if PLAYER of get town MinorTown2 is migrating to == 0 or PLAYER of MinorTown2 == 0
+                b = 1
+                TownsConverted = TownsConverted + 1
+                if isConverted2 == 1
+                    TownsAggressiveConverted = TownsAggressiveConverted + 1
+                elsif isConverted2 == 2
+                    TownsPeacefulConverted = TownsPeacefulConverted + 1
+                end if
             end if
         end if
     end if
 
-    if isConverted2 != 0
+    if isConverted2 == 1
         if PLAYER of AztecCapital == 1
             disable migration from MinorTown2 to MinorTown1
             disable migration from MinorTown2 to MinorTown3
@@ -541,21 +245,36 @@ begin loop
             enable migration from MinorTown2 to AztecCapital
             enable migration from MinorTown2 to PlayerTown
         end if
+    else
+        enable migration from MinorTown2 to MinorTown1
+        enable migration from MinorTown2 to MinorTown3
+        enable migration from MinorTown2 to MinorTown4
+        enable migration from MinorTown2 to MinorTown5
+        enable migration from MinorTown2 to MinorTown6
+        enable migration from MinorTown2 to MinorTown7
+        enable migration from MinorTown2 to MinorTown8
+        enable migration from MinorTown2 to AztecTown1
+        enable migration from MinorTown2 to AztecTown2
+        enable migration from MinorTown2 to AztecTown3
+        enable migration from MinorTown2 to AztecCapital
+        enable migration from MinorTown2 to PlayerTown
     end if
     
     if isConverted3 != 0 and c == 0
-        if PLAYER of MinorTown3 == 0 or get town MinorTown3 is migrating to == PlayerTown
-            c = 1
-            TownsConverted = TownsConverted + 1
-            if isConverted3 == 1
-                TownsAggressiveConverted = TownsAggressiveConverted + 1
-            elsif isConverted3 == 2
-                TownsPeacefulConverted = TownsPeacefulConverted + 1
+        if variable get town MinorTown3 status == variable TOWN_STATUS_MIGRATION_STARTED or PLAYER of MinorTown3 == 0
+            if PLAYER of get town MinorTown3 is migrating to == 0 or PLAYER of MinorTown3 == 0
+                c = 1
+                TownsConverted = TownsConverted + 1
+                if isConverted3 == 1
+                    TownsAggressiveConverted = TownsAggressiveConverted + 1
+                elsif isConverted3 == 2
+                    TownsPeacefulConverted = TownsPeacefulConverted + 1
+                end if
             end if
         end if
     end if
 
-    if isConverted3 != 0
+    if isConverted3 == 1
         if PLAYER of AztecCapital == 1
             disable migration from MinorTown3 to MinorTown1
             disable migration from MinorTown3 to MinorTown2
@@ -583,21 +302,36 @@ begin loop
             enable migration from MinorTown3 to AztecCapital
             enable migration from MinorTown3 to PlayerTown
         end if
+    else
+        enable migration from MinorTown3 to MinorTown1
+        enable migration from MinorTown3 to MinorTown2
+        enable migration from MinorTown3 to MinorTown4
+        enable migration from MinorTown3 to MinorTown5
+        enable migration from MinorTown3 to MinorTown6
+        enable migration from MinorTown3 to MinorTown7
+        enable migration from MinorTown3 to MinorTown8
+        enable migration from MinorTown3 to AztecTown1
+        enable migration from MinorTown3 to AztecTown2
+        enable migration from MinorTown3 to AztecTown3
+        enable migration from MinorTown3 to AztecCapital
+        enable migration from MinorTown3 to PlayerTown
     end if
     
     if isConverted4 != 0 and d == 0
-        if PLAYER of MinorTown4 == 0 or get town MinorTown4 is migrating to == PlayerTown
-            d = 1
-            TownsConverted = TownsConverted + 1
-            if isConverted4 == 1
-                TownsAggressiveConverted = TownsAggressiveConverted + 1
-            elsif isConverted4 == 2
-                TownsPeacefulConverted = TownsPeacefulConverted + 1
+        if variable get town MinorTown4 status == variable TOWN_STATUS_MIGRATION_STARTED or PLAYER of MinorTown4 == 0
+            if PLAYER of get town MinorTown4 is migrating to == 0 or PLAYER of MinorTown4 == 0
+                d = 1
+                TownsConverted = TownsConverted + 1
+                if isConverted4 == 1
+                    TownsAggressiveConverted = TownsAggressiveConverted + 1
+                elsif isConverted4 == 2
+                    TownsPeacefulConverted = TownsPeacefulConverted + 1
+                end if
             end if
         end if
     end if
 
-    if isConverted4 != 0
+    if isConverted4 == 1
         if PLAYER of AztecCapital == 1
             disable migration from MinorTown4 to MinorTown1
             disable migration from MinorTown4 to MinorTown2
@@ -625,21 +359,36 @@ begin loop
             enable migration from MinorTown4 to AztecCapital
             enable migration from MinorTown4 to PlayerTown
         end if
+    else
+        enable migration from MinorTown4 to MinorTown1
+        enable migration from MinorTown4 to MinorTown2
+        enable migration from MinorTown4 to MinorTown3
+        enable migration from MinorTown4 to MinorTown5
+        enable migration from MinorTown4 to MinorTown6
+        enable migration from MinorTown4 to MinorTown7
+        enable migration from MinorTown4 to MinorTown8
+        enable migration from MinorTown4 to AztecTown1
+        enable migration from MinorTown4 to AztecTown2
+        enable migration from MinorTown4 to AztecTown3
+        enable migration from MinorTown4 to AztecCapital
+        enable migration from MinorTown4 to PlayerTown
     end if
     
     if isConverted5 != 0 and e == 0
-        if PLAYER of MinorTown5 == 0 or get town MinorTown5 is migrating to == PlayerTown
-            e = 1
-            TownsConverted = TownsConverted + 1
-            if isConverted5 == 1
-                TownsAggressiveConverted = TownsAggressiveConverted + 1
-            elsif isConverted5 == 2
-                TownsPeacefulConverted = TownsPeacefulConverted + 1
+        if variable get town MinorTown5 status == variable TOWN_STATUS_MIGRATION_STARTED or PLAYER of MinorTown5 == 0
+            if PLAYER of get town MinorTown5 is migrating to == 0 or PLAYER of MinorTown5 == 0
+                e = 1
+                TownsConverted = TownsConverted + 1
+                if isConverted5 == 1
+                    TownsAggressiveConverted = TownsAggressiveConverted + 1
+                elsif isConverted5 == 2
+                    TownsPeacefulConverted = TownsPeacefulConverted + 1
+                end if
             end if
         end if
     end if
 
-    if isConverted5 != 0
+    if isConverted5 == 1
         if PLAYER of AztecCapital == 1
             disable migration from MinorTown5 to MinorTown1
             disable migration from MinorTown5 to MinorTown2
@@ -667,21 +416,36 @@ begin loop
             enable migration from MinorTown5 to AztecCapital
             enable migration from MinorTown5 to PlayerTown
         end if
+    else
+        enable migration from MinorTown5 to MinorTown1
+        enable migration from MinorTown5 to MinorTown2
+        enable migration from MinorTown5 to MinorTown3
+        enable migration from MinorTown5 to MinorTown4
+        enable migration from MinorTown5 to MinorTown6
+        enable migration from MinorTown5 to MinorTown7
+        enable migration from MinorTown5 to MinorTown8
+        enable migration from MinorTown5 to AztecTown1
+        enable migration from MinorTown5 to AztecTown2
+        enable migration from MinorTown5 to AztecTown3
+        enable migration from MinorTown5 to AztecCapital
+        enable migration from MinorTown5 to PlayerTown
     end if
     
     if isConverted6 != 0 and f == 0
-        if PLAYER of MinorTown6 == 0 or get town MinorTown6 is migrating to == PlayerTown
-            f = 1
-            TownsConverted = TownsConverted + 1
-            if isConverted6 == 1
-                TownsAggressiveConverted = TownsAggressiveConverted + 1
-            elsif isConverted6 == 2
-                TownsPeacefulConverted = TownsPeacefulConverted + 1
+        if variable get town MinorTown6 status == variable TOWN_STATUS_MIGRATION_STARTED or PLAYER of MinorTown6 == 0
+            if PLAYER of get town MinorTown6 is migrating to == 0 or PLAYER of MinorTown6 == 0
+                f = 1
+                TownsConverted = TownsConverted + 1
+                if isConverted6 == 1
+                    TownsAggressiveConverted = TownsAggressiveConverted + 1
+                elsif isConverted6 == 2
+                    TownsPeacefulConverted = TownsPeacefulConverted + 1
+                end if
             end if
         end if
     end if
 
-    if isConverted6 != 0
+    if isConverted6 == 1
         if PLAYER of AztecCapital == 1
             disable migration from MinorTown6 to MinorTown1
             disable migration from MinorTown6 to MinorTown2
@@ -709,21 +473,36 @@ begin loop
             enable migration from MinorTown6 to AztecCapital
             enable migration from MinorTown6 to PlayerTown
         end if
+    else
+        enable migration from MinorTown6 to MinorTown1
+        enable migration from MinorTown6 to MinorTown2
+        enable migration from MinorTown6 to MinorTown3
+        enable migration from MinorTown6 to MinorTown4
+        enable migration from MinorTown6 to MinorTown5
+        enable migration from MinorTown6 to MinorTown7
+        enable migration from MinorTown6 to MinorTown8
+        enable migration from MinorTown6 to AztecTown1
+        enable migration from MinorTown6 to AztecTown2
+        enable migration from MinorTown6 to AztecTown3
+        enable migration from MinorTown6 to AztecCapital
+        enable migration from MinorTown6 to PlayerTown
     end if
     
     if isConverted7 != 0 and g == 0
-        if PLAYER of MinorTown7 == 0 or get town MinorTown7 is migrating to == PlayerTown
-            g = 1
-            TownsConverted = TownsConverted + 1
-            if isConverted7 == 1
-                TownsAggressiveConverted = TownsAggressiveConverted + 1
-            elsif isConverted7 == 2
-                TownsPeacefulConverted = TownsPeacefulConverted + 1
+        if variable get town MinorTown7 status == variable TOWN_STATUS_MIGRATION_STARTED or PLAYER of MinorTown7 == 0
+            if PLAYER of get town MinorTown7 is migrating to == 0 or PLAYER of MinorTown7 == 0
+                g = 1
+                TownsConverted = TownsConverted + 1
+                if isConverted7 == 1
+                    TownsAggressiveConverted = TownsAggressiveConverted + 1
+                elsif isConverted7 == 2
+                    TownsPeacefulConverted = TownsPeacefulConverted + 1
+                end if
             end if
         end if
     end if    
 
-    if isConverted7 != 0
+    if isConverted7 == 1
         if PLAYER of AztecCapital == 1
             disable migration from MinorTown7 to MinorTown1
             disable migration from MinorTown7 to MinorTown2
@@ -751,21 +530,36 @@ begin loop
             enable migration from MinorTown7 to AztecCapital
             enable migration from MinorTown7 to PlayerTown
         end if
+    else
+        enable migration from MinorTown7 to MinorTown1
+        enable migration from MinorTown7 to MinorTown2
+        enable migration from MinorTown7 to MinorTown3
+        enable migration from MinorTown7 to MinorTown4
+        enable migration from MinorTown7 to MinorTown5
+        enable migration from MinorTown7 to MinorTown6
+        enable migration from MinorTown7 to MinorTown8
+        enable migration from MinorTown7 to AztecTown1
+        enable migration from MinorTown7 to AztecTown2
+        enable migration from MinorTown7 to AztecTown3
+        enable migration from MinorTown7 to AztecCapital
+        enable migration from MinorTown7 to PlayerTown
     end if
     
     if isConverted8 != 0 and h == 0
-        if PLAYER of MinorTown8 == 0 or get town MinorTown8 is migrating to == PlayerTown
-            h = 1
-            TownsConverted = TownsConverted + 1
-            if isConverted8 == 1
-                TownsAggressiveConverted = TownsAggressiveConverted + 1
-            elsif isConverted8 == 2
-                TownsPeacefulConverted = TownsPeacefulConverted + 1
+        if variable get town MinorTown8 status == variable TOWN_STATUS_MIGRATION_STARTED or PLAYER of MinorTown8 == 0
+            if PLAYER of get town MinorTown8 is migrating to == 0 or PLAYER of MinorTown8 == 0
+                h = 1
+                TownsConverted = TownsConverted + 1
+                if isConverted8 == 1
+                    TownsAggressiveConverted = TownsAggressiveConverted + 1
+                elsif isConverted8 == 2
+                    TownsPeacefulConverted = TownsPeacefulConverted + 1
+                end if
             end if
         end if
     end if
 
-    if isConverted8 != 0
+    if isConverted8 == 1
         if PLAYER of AztecCapital == 1
             disable migration from MinorTown8 to MinorTown1
             disable migration from MinorTown8 to MinorTown2
@@ -793,21 +587,36 @@ begin loop
             enable migration from MinorTown8 to AztecCapital
             enable migration from MinorTown8 to PlayerTown
         end if
+    else
+        enable migration from MinorTown8 to MinorTown1
+        enable migration from MinorTown8 to MinorTown2
+        enable migration from MinorTown8 to MinorTown3
+        enable migration from MinorTown8 to MinorTown4
+        enable migration from MinorTown8 to MinorTown5
+        enable migration from MinorTown8 to MinorTown6
+        enable migration from MinorTown8 to MinorTown7
+        enable migration from MinorTown8 to AztecTown1
+        enable migration from MinorTown8 to AztecTown2
+        enable migration from MinorTown8 to AztecTown3
+        enable migration from MinorTown8 to AztecCapital
+        enable migration from MinorTown8 to PlayerTown
     end if
     
     if isConverted9 != 0 and i == 0
-        if PLAYER of AztecTown1 == 0 or get town AztecTown1 is migrating to == PlayerTown
-            i = 1
-            TownsConverted = TownsConverted + 1
-            if isConverted9 == 1
-                TownsAggressiveConverted = TownsAggressiveConverted + 1
-            elsif isConverted9 == 2
-                TownsPeacefulConverted = TownsPeacefulConverted + 1
+        if variable get town AztecTown1 status == variable TOWN_STATUS_MIGRATION_STARTED or PLAYER of AztecTown1 == 0
+            if PLAYER of get town AztecTown1 is migrating to == 0 or PLAYER of AztecTown1 == 0
+                i = 1
+                TownsConverted = TownsConverted + 1
+                if isConverted9 == 1
+                    TownsAggressiveConverted = TownsAggressiveConverted + 1
+                elsif isConverted9 == 2
+                    TownsPeacefulConverted = TownsPeacefulConverted + 1
+                end if
             end if
         end if
     end if
 
-    if isConverted9 != 0
+    if isConverted9 == 1
         if PLAYER of AztecCapital == 1
             disable migration from AztecTown1 to MinorTown1
             disable migration from AztecTown1 to MinorTown2
@@ -835,21 +644,36 @@ begin loop
             enable migration from AztecTown1 to AztecCapital
             enable migration from AztecTown1 to PlayerTown
         end if
+    else
+        enable migration from AztecTown1 to MinorTown1
+        enable migration from AztecTown1 to MinorTown2
+        enable migration from AztecTown1 to MinorTown3
+        enable migration from AztecTown1 to MinorTown4
+        enable migration from AztecTown1 to MinorTown5
+        enable migration from AztecTown1 to MinorTown6
+        enable migration from AztecTown1 to MinorTown7
+        enable migration from AztecTown1 to MinorTown8
+        enable migration from AztecTown1 to AztecTown2
+        enable migration from AztecTown1 to AztecTown3
+        enable migration from AztecTown1 to AztecCapital
+        enable migration from AztecTown1 to PlayerTown
     end if
     
     if isConverted10 != 0 and j == 0
-        if PLAYER of AztecTown2 == 0 or get town AztecTown2 is migrating to == PlayerTown
-            j = 1
-            TownsConverted = TownsConverted + 1
-            if isConverted10 == 1
-                TownsAggressiveConverted = TownsAggressiveConverted + 1
-            elsif isConverted10 == 2
-                TownsPeacefulConverted = TownsPeacefulConverted + 1
+        if variable get town AztecTown2 status == variable TOWN_STATUS_MIGRATION_STARTED or PLAYER of AztecTown2 == 0
+            if PLAYER of get town AztecTown2 is migrating to == 0 or PLAYER of AztecTown2 == 0
+                j = 1
+                TownsConverted = TownsConverted + 1
+                if isConverted10 == 1
+                    TownsAggressiveConverted = TownsAggressiveConverted + 1
+                elsif isConverted10 == 2
+                    TownsPeacefulConverted = TownsPeacefulConverted + 1
+                end if
             end if
         end if
     end if
 
-    if isConverted10 != 0
+    if isConverted10 == 1
         if PLAYER of AztecCapital == 1
             disable migration from AztecTown2 to MinorTown1
             disable migration from AztecTown2 to MinorTown2
@@ -877,21 +701,36 @@ begin loop
             enable migration from AztecTown2 to AztecCapital
             enable migration from AztecTown2 to PlayerTown
         end if
+    else
+        enable migration from AztecTown2 to MinorTown1
+        enable migration from AztecTown2 to MinorTown2
+        enable migration from AztecTown2 to MinorTown3
+        enable migration from AztecTown2 to MinorTown4
+        enable migration from AztecTown2 to MinorTown5
+        enable migration from AztecTown2 to MinorTown6
+        enable migration from AztecTown2 to MinorTown7
+        enable migration from AztecTown2 to MinorTown8
+        enable migration from AztecTown2 to AztecTown1
+        enable migration from AztecTown2 to AztecTown3
+        enable migration from AztecTown2 to AztecCapital
+        enable migration from AztecTown2 to PlayerTown
     end if
     
     if isConverted11 != 0 and k == 0
-        if PLAYER of AztecTown3 == 0 or get town AztecTown3 is migrating to == PlayerTown
-            k = 1
-            TownsConverted = TownsConverted + 1
-            if isConverted11 == 1
-                TownsAggressiveConverted = TownsAggressiveConverted + 1
-            elsif isConverted11 == 2
-                TownsPeacefulConverted = TownsPeacefulConverted + 1
+        if variable get town AztecTown3 status == variable TOWN_STATUS_MIGRATION_STARTED or PLAYER of AztecTown3 == 0
+            if PLAYER of get town AztecTown3 is migrating to == 0 or PLAYER of AztecTown3 == 0
+                k = 1
+                TownsConverted = TownsConverted + 1
+                if isConverted11 == 1
+                    TownsAggressiveConverted = TownsAggressiveConverted + 1
+                elsif isConverted11 == 2
+                    TownsPeacefulConverted = TownsPeacefulConverted + 1
+                end if
             end if
         end if
     end if
 
-    if isConverted11 != 0
+    if isConverted11 == 1
         if PLAYER of AztecCapital == 1
             disable migration from AztecTown3 to MinorTown1
             disable migration from AztecTown3 to MinorTown2
@@ -919,21 +758,36 @@ begin loop
             enable migration from AztecTown3 to AztecCapital
             enable migration from AztecTown3 to PlayerTown
         end if
+    else
+        enable migration from AztecTown3 to MinorTown1
+        enable migration from AztecTown3 to MinorTown2
+        enable migration from AztecTown3 to MinorTown3
+        enable migration from AztecTown3 to MinorTown4
+        enable migration from AztecTown3 to MinorTown5
+        enable migration from AztecTown3 to MinorTown6
+        enable migration from AztecTown3 to MinorTown7
+        enable migration from AztecTown3 to MinorTown8
+        enable migration from AztecTown3 to AztecTown1
+        enable migration from AztecTown3 to AztecTown2
+        enable migration from AztecTown3 to AztecCapital
+        enable migration from AztecTown3 to PlayerTown
     end if
     
     if isConverted12 != 0 and l == 0
-        if PLAYER of AztecCapital == 0 or get town AztecCapital is migrating to == PlayerTown
-            l = 1
-            TownsConverted = TownsConverted + 1
-            if isConverted12 == 1
-                TownsAggressiveConverted = TownsAggressiveConverted + 1
-            elsif isConverted12 == 2
-                TownsPeacefulConverted = TownsPeacefulConverted + 1
+        if variable get town AztecCapital status == variable TOWN_STATUS_MIGRATION_STARTED or PLAYER of AztecCapital == 0
+            if PLAYER of get town AztecCapital is migrating to == 0 or PLAYER of AztecCapital == 0
+                l= 1
+                TownsConverted = TownsConverted + 1
+                if isConverted12 == 1
+                    TownsAggressiveConverted = TownsAggressiveConverted + 1
+                elsif isConverted12 == 2
+                    TownsPeacefulConverted = TownsPeacefulConverted + 1
+                end if
             end if
         end if
     end if    
 
-    if isConverted12 != 0
+    if isConverted12 == 1
         if PLAYER of AztecCapital == 1
             disable migration from AztecCapital to MinorTown1
             disable migration from AztecCapital to MinorTown2
@@ -961,6 +815,19 @@ begin loop
             enable migration from AztecCapital to AztecTown3
             enable migration from AztecCapital to PlayerTown
         end if
+    else
+        enable migration from AztecCapital to MinorTown1
+        enable migration from AztecCapital to MinorTown2
+        enable migration from AztecCapital to MinorTown3
+        enable migration from AztecCapital to MinorTown4
+        enable migration from AztecCapital to MinorTown5
+        enable migration from AztecCapital to MinorTown6
+        enable migration from AztecCapital to MinorTown7
+        enable migration from AztecCapital to MinorTown8
+        enable migration from AztecCapital to AztecTown1
+        enable migration from AztecCapital to AztecTown2
+        enable migration from AztecCapital to AztecTown3
+        enable migration from AztecCapital to PlayerTown
     end if
     
 end loop
@@ -1477,7 +1344,7 @@ begin loop
                 wait until read
             end dialogue
 
-        elsif variable get MyCreature sub type == variable CREATURE_TYPE_APE or MyCreature == variable CREATURE_TYPE_GORILLA
+        elsif variable get MyCreature sub type == variable CREATURE_TYPE_APE or variable get MyCreature sub type == variable CREATURE_TYPE_GORILLA
             begin dialogue
                 say "BW2T_SCRIPT_09FINAL_STORYLINE_AZTEC_GENERAL_MOCKS_APE"
                 wait until read
@@ -3632,7 +3499,7 @@ begin loop
             
             wait number from 6 to 10 seconds
             Counter++
-            until Counter >= 50 or PLAYER of AztecCapital != 1 or size of AztecCapital >= 450
+            until Counter >= 50 or PLAYER of AztecCapital != 1 or (size of AztecCapital - get army size in town AztecCapital) >= 200
         end loop
     end if
 
@@ -3690,7 +3557,7 @@ begin loop
             
             wait number from 6 to 10 seconds
             Counter++
-            until Counter >= 40 or PLAYER of AztecTown1 != 1 or size of AztecTown1 >= 400
+            until Counter >= 40 or PLAYER of AztecTown1 != 1 or (size of AztecTown1 - get army size in town AztecTown1) >= 75
         end loop
     end if
 
@@ -3748,7 +3615,7 @@ begin loop
             
             wait number from 6 to 10 seconds
             Counter++
-            until Counter >= 40 or PLAYER of AztecTown2 != 1 or size of AztecTown2 >= 250
+            until Counter >= 40 or PLAYER of AztecTown2 != 1 or (size of AztecTown2 - get army size in town AztecTown2) >= 100
         end loop
     end if
 
@@ -3806,7 +3673,7 @@ begin loop
             
             wait number from 6 to 10 seconds
             Counter++
-            until Counter >= 20 or PLAYER of AztecTown3 != 1 or size of AztecTown3 >= 100
+            until Counter >= 20 or PLAYER of AztecTown3 != 1 or (size of AztecTown3 - get army size in town AztecTown3) >= 50
         end loop
     end if
 
