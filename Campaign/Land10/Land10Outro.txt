@@ -2,8 +2,6 @@
 //    Land 10 Outro
 //    ~~~~~~~~~~~~~
 //
-//    Start date:     18.05.18        By:    Boxhead
-//    Update date:    24.05.18        By: Boxhead
 ///////////////////////////////////////////////////////////////////////////////
 define script LC10_Outro
 define script LC10_Departure
@@ -16,7 +14,7 @@ PlayerAlignment = 0
 
 start
 
-wait until PLAYER of AztecCapital != 1 and PLAYER of AztecTown1 != 1 and PLAYER of AztecTown2 != 1 and PLAYER of PlayerTown != 1
+wait until get player 1 town total == 0
 LandWon = 1
 
 PD_ForcedSaving = 1
@@ -31,17 +29,16 @@ begin cinema
     set fade red 0 green 0 blue 0 time 2
     wait 2 seconds
     LC10_LandDone = 1
-    run background script LC10_Departure
     set town PlayerTown capture all enemy towns
     disable dialogue manager
     disable game can be lost
     //increment tribute by 250000
     if PLAYER of AztecCapital == 0
         set player 0 objective TRIBUTE_OBJECTIVE_SCRIPT_CONTROLLED_WIN_LAND with amount 1 text "BW2T_SCRIPT_07FINAL_SECONDARYOBJECTIVE_80" amount 1 description "BW2T_SCRIPT_06FINAL_SECONDARYOBJECTIVE_51" start value 0 reward 400000 alignment -0.05
-        CREATURE_ALIGNMENT of MyCreature = CREATURE_ALIGNMENT of MyCreature - 0.10
+        ALIGNMENT of MyCreature = ALIGNMENT of MyCreature - 0.10
     else
-        set player 0 objective TRIBUTE_OBJECTIVE_SCRIPT_CONTROLLED_WIN_LAND with amount 1 text "BW2T_SCRIPT_07FINAL_SECONDARYOBJECTIVE_80" amount 1 description "BW2T_SCRIPT_06FINAL_SECONDARYOBJECTIVE_51" start value 0 reward 400000 alignment 0.10
-        CREATURE_ALIGNMENT of MyCreature = CREATURE_ALIGNMENT of MyCreature + 0.10
+        set player 0 objective TRIBUTE_OBJECTIVE_SCRIPT_CONTROLLED_WIN_LAND with amount 1 text "BW2T_SCRIPT_07FINAL_SECONDARYOBJECTIVE_80" amount 1 description "BW2T_SCRIPT_06FINAL_SECONDARYOBJECTIVE_51" start value 0 reward 400000 alignment 0.05
+        ALIGNMENT of MyCreature = ALIGNMENT of MyCreature + 0.10
     end if
     set player 0 objective TRIBUTE_OBJECTIVE_SCRIPT_CONTROLLED_WIN_LAND value 1
     stop script "LC10_Speeches"
@@ -58,8 +55,7 @@ begin cinema
     //43 seconds
     reset camera path
     queue camera move with position {1651.48,160.00,2246.28} focus {AztecCapital} time 0.0
-    queue camera move with position {1377.16,260.00,2245.71} focus {AztecCapital} + {0,40,0} time 37.0
-    queue camera move with position {1501.66,250.00,2314.60} focus {1531.56,201.22,2366.84} time 6.0
+    queue camera move with position {1377.16,260.00,2245.71} focus {AztecCapital} + {0,40,0} time 42.0
     play camera path with easein 20 easeout 8 method SCRIPT_CAMERAPATH_EQUALDISTANCE
     set fade in time 1
 
@@ -110,6 +106,8 @@ begin cinema
     send good spirit home
 
 end cinema
+
+run background script LC10_Departure
 
 end script LC10_Outro
 

@@ -2,15 +2,13 @@
 //    Land 10 Aztec Troop-Management
 //    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
-//    Start date:         18.08.16            By:    Boxhead
-//    Update date:        31.10.16            By: Boxhead
 ///////////////////////////////////////////////////////////////////////////////
 
 //-----------------------------------------------------------------------------
 //    Globals
 //-----------------------------------------------------------------------------
 
-define LC10_NUM_OF_DEFENDERS                = 0 //Unused
+define LC10_NUM_OF_DEFENDERS               = 0 //Unused
 define LC10_NUM_OF_PLATOONS                = 46
 define LC10_NUM_OF_SIEGE_CATAPULTS         = 25
 define LC10_NUM_OF_WALL_ARCHERS            = 20
@@ -1142,7 +1140,7 @@ start
                         end if
                     end if
                     if get CatapultMoveTimer1 time remaining <= 0
-                        if get size of SiegeWeapon action queue < 1
+                        if get size of siege weapon SiegeWeapon action queue < 1
 
                             if PointOn == 0
                                 if SiegeWeapon can navigate to {Waypoint1}

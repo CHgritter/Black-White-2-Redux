@@ -2,8 +2,6 @@
 //    Land 10 Globals
 //    ~~~~~~~~~~~~~~~
 //
-//    Start date:     08.05.18            By: Boxhead
-//    Update date:    08.05.18            By: Boxhead
 ///////////////////////////////////////////////////////////////////////////////
 
 
@@ -100,6 +98,14 @@ start
 
     CreatureAttackTimer = create timer for 0 seconds
 
+
+    if HardMode == 1
+        NORSERECRUITMENTMODIFIER = 0.75
+        JAPANESERECRUITMENTMODIFIER = 0.75
+        AZTECRECRUITMENTMODIFIER = 0.75
+        TALUSRECRUITMENTMODIFIER = 0.75
+    end if
+
     GB_PlayerTown = get town with id 0//For Global Script
     PlayerTown = get town with id 0
     MinorTown1 = get town with id 2
@@ -132,7 +138,7 @@ start
 begin loop
     wait 2.5 seconds
     if get DifficultyTimer time remaining <= 0
-        RecruitModifier *= 1.15
+        RecruitModifier *= 1.25
         EpicModifier *= 1.25
         BuilderModifier *= 1.25
         DifficultyTimer = create timer for 1800 seconds
@@ -148,7 +154,7 @@ EpicModifierTemp = EpicModifier
 BuilderModifierTemp = BuilderModifier
 
 //Give the AI a comeback for 30 minutes
-RecruitSizeModifier = 2.0
+RecruitSizeModifier = 1.25
 //RecruitModifier = 1.25
 BuilderModifier = 1.25
 EpicModifier = 1.0

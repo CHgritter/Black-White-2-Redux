@@ -203,7 +203,6 @@ start
         say "BW2T_SCRIPT_11FINAL_ADVISORS_INTRO_140"
         //    AZTEC_GENERAL    The Japanese have betrayed us! They will not escape our wrath!
         //wait until read
-
         wait until read
 
         say "BW2T_SCRIPT_11FINAL_ADVISORS_INTRO_120"
