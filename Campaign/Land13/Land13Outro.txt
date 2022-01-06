@@ -14,7 +14,7 @@ begin script LC13_Outro
 
 start
 
-wait until PLAYER of AztecCapital != 1 and PLAYER of AztecTown1 != 1 and PLAYER of AztecTown2 != 1 and PLAYER of PlayerTown != 1
+wait until get player 1 town total == 0
 
 PD_ForcedSaving = 1
 wait until PD_ForcedSaving == 0 or 10 seconds
@@ -28,16 +28,15 @@ begin cinema
     //AGC: Moved fade out & wait inside the cinema block
     set fade red 0 green 0 blue 0 time 2
     wait 2 seconds
-    run background script LC13_Departure
     set town PlayerTown capture all enemy towns
     disable dialogue manager
     disable game can be lost
     if PLAYER of AztecCapital == 0
         set player 0 objective TRIBUTE_OBJECTIVE_SCRIPT_CONTROLLED_WIN_LAND with amount 1 text "BW2T_SCRIPT_07FINAL_SECONDARYOBJECTIVE_80" amount 1 description "BW2T_SCRIPT_06FINAL_SECONDARYOBJECTIVE_51" start value 0 reward 700000 alignment -0.05
-        CREATURE_ALIGNMENT of MyCreature = CREATURE_ALIGNMENT of MyCreature - 0.10
+        ALIGNMENT of MyCreature = ALIGNMENT of MyCreature - 0.10
     else
-        set player 0 objective TRIBUTE_OBJECTIVE_SCRIPT_CONTROLLED_WIN_LAND with amount 1 text "BW2T_SCRIPT_07FINAL_SECONDARYOBJECTIVE_80" amount 1 description "BW2T_SCRIPT_06FINAL_SECONDARYOBJECTIVE_51" start value 0 reward 700000 alignment 0.10
-        CREATURE_ALIGNMENT of MyCreature = CREATURE_ALIGNMENT of MyCreature + 0.10
+        set player 0 objective TRIBUTE_OBJECTIVE_SCRIPT_CONTROLLED_WIN_LAND with amount 1 text "BW2T_SCRIPT_07FINAL_SECONDARYOBJECTIVE_80" amount 1 description "BW2T_SCRIPT_06FINAL_SECONDARYOBJECTIVE_51" start value 0 reward 700000 alignment 0.05
+        ALIGNMENT of MyCreature = ALIGNMENT of MyCreature + 0.10
     end if
     set player 0 objective TRIBUTE_OBJECTIVE_SCRIPT_CONTROLLED_WIN_LAND value 1
     stop script "LC13_Speeches"
@@ -99,6 +98,8 @@ begin cinema
     stop music with fadetime 5
 
 end cinema
+
+run background script LC13_Departure
 
 end script LC13_Outro
 

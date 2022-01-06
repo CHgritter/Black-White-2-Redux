@@ -76,6 +76,7 @@ begin script tal_TalusLoop(GodHandle,rTown,PlayerID)
     townCounter = 0
     whichSpell = 0
     FireBallUsed = 0
+    makeLandDarkTimer = create timer for number from 600 * EpicModifier to 1200 * EpicModifier seconds
 start
     ge_MiracleDelay[godHandle] = create timer for 0 seconds
     while 1 == 1 // make sure godHandle is valid
@@ -200,13 +201,13 @@ start
             run script ge_MoveToRadiusAltitude(godHandle,marker at {ClosestPosInfluenceRing},geGodThrowRadius / 2,geGodThrowAltitude)
             
             wait until GB_DialogueIsRunning == 0
-            run script ge_ThrowMiracle(godHandle, GE_MIRACLE_TYPE_STORM, marker at {1277.97,60.64,1466.99} + {0,15,0} + {number from -23 to 23,number from -5 to 7,number from -23 to 23}, 1)
+            run script ge_ThrowMiracle(godHandle, GE_MIRACLE_TYPE_STORM, marker at {1277.97,60.64,1466.99} + {0,15,0} + {number from -12 to 12,number from -5 to 13,number from -12 to 12}, 1)
             wait number from 2 to 4 seconds
-            run script ge_ThrowMiracle(godHandle, GE_MIRACLE_TYPE_STORM, marker at {1277.97,60.64,1466.99} + {0,15,0} + {number from -23 to 23,number from -5 to 7,number from -23 to 23}, 1)
+            run script ge_ThrowMiracle(godHandle, GE_MIRACLE_TYPE_STORM, marker at {1277.97,60.64,1466.99} + {0,15,0} + {number from -23 to 23,number from -5 to 13,number from -12 to 12}, 1)
             wait number from 2 to 4 seconds
-            run script ge_ThrowMiracle(godHandle, GE_MIRACLE_TYPE_FIRE, marker at {1277.97,60.64,1466.99} + {0,26,0} + {number from -25 to 25,number from -3 to 3,number from -25 to 25}, 1)
+            run script ge_ThrowMiracle(godHandle, GE_MIRACLE_TYPE_FIRE, marker at {1277.97,60.64,1466.99} + {0,26,0} + {number from -12 to 12,number from -3 to 8,number from -12 to 12}, 1)
             wait number from 2 to 4 seconds
-            run script ge_ThrowMiracle(godHandle, GE_MIRACLE_TYPE_FIRE, marker at {1277.97,60.64,1466.99} + {0,26,0} + {number from -25 to 25,number from -3 to 3,number from -25 to 25}, 1)
+            run script ge_ThrowMiracle(godHandle, GE_MIRACLE_TYPE_FIRE, marker at {1277.97,60.64,1466.99} + {0,26,0} + {number from -12 to 12,number from -3 to 8,number from -25 to 25}, 1)
             wait number from 2 to 4 seconds
 
             ge_Busy[godHandle] = 0
@@ -259,9 +260,13 @@ start
                         close dialogue
                         wait BW2XT_LAND02_PLAYER_ACCEPTS_MIGRATION_20 + 1 seconds
                     end if
+                    run script ge_ThrowMiracle(godHandle,GE_MIRACLE_TYPE_FIRERAIN,myBuilding,0)
+                    myBuilding = get random abode in town PlayerTown
+                    if get player ge_Player[godHandle] mana > 20000 and number from 1 to 3 == 1 and myBuilding exists
+                        run script ge_ThrowMiracle(godHandle,GE_MIRACLE_TYPE_FIRERAIN,myBuilding,0)
+                    end if
                 end dialogue
                 GB_DialogueIsRunning = 0
-                run script ge_ThrowMiracle(godHandle,GE_MIRACLE_TYPE_FIRERAIN,myBuilding,0)
                 FireRainTimer = create timer for number from 600 * EpicModifier to 900 * EpicModifier seconds
             end if
             ge_Busy[godHandle] = 0
@@ -314,6 +319,43 @@ start
             ThrowMeteorTimer = create timer for number from 360 * EpicModifier to 720 * EpicModifier seconds
         end if
 
+        //Make Land dark
+        if ge_Busy[godHandle] == 0 and get makeLandDarkTimer time remaining <= 0 and GB_DialogueIsRunning == 0 and get game time > 07.00 and get game time < 18.00
+            ge_Busy[godHandle] = 1
+            GB_DialogueIsRunning = 1
+            wait until dialogue ready
+            begin dialogue
+                myRand = number from 1 to 4
+                if myRand == 1
+                    say "BW2XT_LAND02_TALUS_MAKES_LAND_DARK_01"
+                    clear dialogue
+                    close dialogue
+                    wait BW2XT_LAND02_TALUS_MAKES_LAND_DARK_01 + 1 seconds
+                elsif myRand == 2
+                    say "BW2XT_LAND02_TALUS_MAKES_LAND_DARK_02"
+                    clear dialogue
+                    close dialogue
+                    wait BW2XT_LAND02_TALUS_MAKES_LAND_DARK_02 + 1 seconds
+                elsif myRand == 3
+                    say "BW2XT_LAND02_TALUS_MAKES_LAND_DARK_03"
+                    clear dialogue
+                    close dialogue
+                    wait BW2XT_LAND02_TALUS_MAKES_LAND_DARK_03 + 1 seconds
+                elsif myRand == 4
+                    say "BW2XT_LAND02_TALUS_MAKES_LAND_DARK_04"
+                    clear dialogue
+                    close dialogue
+                    wait BW2XT_LAND02_TALUS_MAKES_LAND_DARK_04 + 1 seconds
+                end if
+            end dialogue
+            GB_DialogueIsRunning = 0
+            
+            move game time 22.00 time 2
+
+            ge_Busy[godHandle] = 0
+            makeLandDarkTimer = create timer for number from 600 * EpicModifier to 900 * EpicModifier seconds
+        end if
+
         if townCounter >= 15 or PLAYER of ge_HomeTown[godHandle] != ge_Player[godHandle]
             townCounter = 0
             geChangeTown[godHandle] = 1
@@ -362,24 +404,26 @@ start
             EnemyCatapult = get siege weapon of player myCounter nearest {ge_HomeTown[godHandle]} radius tal_DefendRadius
             Target = 0
 
+            if EnemyCreatureDist < tal_DefendRadius and HEALTH of EnemyCreature > 0
+                myInfluence = get player ge_Player[godHandle] influence at {EnemyCreature}
+                if myInfluence > 0
+                    Target = EnemyCreature
+                    TargetType = 3
+                end if
+            end if
+            if EnemyCatapult exists //and HEALTH of EnemyCatapult > 0
+                myInfluence = get player ge_Player[godHandle] influence at {EnemyCatapult}
+                if myInfluence > 0
+                    Target = EnemyCatapult
+                    TargetType = 2
+                end if
+            end if
             if EnemyPlatoon exists
                 myInfluence = get player ge_Player[godHandle] influence at {EnemyPlatoon}
                 if myInfluence > 0
                     Target = EnemyPlatoon
+                    TargetType = 1
                 end if
-                TargetType = 1
-            elsif EnemyCatapult exists //and HEALTH of EnemyCatapult > 0
-                myInfluence = get player ge_Player[godHandle] influence at {EnemyCatapult}
-                if myInfluence > 0
-                    Target = EnemyCatapult
-                end if
-                TargetType = 2
-            elsif EnemyCreatureDist < tal_DefendRadius and HEALTH of EnemyCreature > 0
-                myInfluence = get player ge_Player[godHandle] influence at {EnemyCreature}
-                if myInfluence > 0
-                    Target = EnemyCreature
-                end if
-                TargetType = 3
             end if
             currentMana = get player ge_Player[godHandle] mana
             if Target != 0 and currentMana > geManaCostFire and ge_Altar[godHandle] == 1
@@ -613,10 +657,9 @@ start
 
         if buildingUnderConstruction exists
             // This will probably never be true, but just in case
-            if buildingUnderConstruction on fire
+            if fire near {buildingUnderConstruction} radius 25
                 currentMana = get player ge_Player[godHandle] mana
-                while buildingUnderConstruction exists and buildingUnderConstruction on fire and geManaCostWater <= currentMana
-
+                while buildingUnderConstruction exists and fire near {buildingUnderConstruction} radius 25 and geManaCostWater <= currentMana
                     run script ge_ThrowMiracle(godHandle,GE_MIRACLE_TYPE_WATER,buildingUnderConstruction,0)
                     currentMana -= geManaCostWater
                 end while
@@ -638,224 +681,224 @@ start
     if rGodInstance[godHandle] exists
         //say "Building Town"
         myTownSize = size of ge_HomeTown[godHandle]
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_ALTAR in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_STORAGE_PIT in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists and myTownSize > adult capacity of ge_HomeTown[godHandle] * 0.9
+        if damagedBuilding not exists and myTownSize > adult capacity of ge_HomeTown[godHandle] * 0.9
             damagedBuilding = get random abode of type ABODE_NUMBER_A in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists and myTownSize > adult capacity of ge_HomeTown[godHandle] * 0.9
+        if damagedBuilding not exists and myTownSize > adult capacity of ge_HomeTown[godHandle] * 0.9
             damagedBuilding = get random abode of type ABODE_NUMBER_B in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists and myTownSize > adult capacity of ge_HomeTown[godHandle] * 0.9
+        if damagedBuilding not exists and myTownSize > adult capacity of ge_HomeTown[godHandle] * 0.9
             damagedBuilding = get random abode of type ABODE_NUMBER_C in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists and myTownSize > adult capacity of ge_HomeTown[godHandle] * 0.9
+        if damagedBuilding not exists and myTownSize > adult capacity of ge_HomeTown[godHandle] * 0.9
             damagedBuilding = get random abode of type ABODE_NUMBER_D in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists and myTownSize > adult capacity of ge_HomeTown[godHandle] * 0.9
+        if damagedBuilding not exists and myTownSize > adult capacity of ge_HomeTown[godHandle] * 0.9
             damagedBuilding = get random abode of type ABODE_NUMBER_E in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_SKYSCRAPER in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_TEMPLE in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_CREATURE_PEN in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_MELEE_ARMOURY in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_RANGED_ARMOURY in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_WORKSHOP in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_CRECHE in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_SHRINE in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_PUB in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_TOWN_CENTRE in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_STUDY in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_UNIVERSITY in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_PRISON in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_SMELTER in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_GRANARY in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_LUMBERMILL in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_MARKET_POT in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_MARKET_STATUE in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_MARKET_PLANT in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_AMPITHEATRE in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_GRAVEYARD in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_OLD_PERSONS_HOME in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_BATHHOUSE in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_A in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_B in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_C in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_D in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild or damagedBuilding not exists
+        if damagedBuilding not exists
             damagedBuilding = get random abode of type ABODE_NUMBER_E in town ge_HomeTown[godHandle]
-            if not damagedBuilding on fire
+            if not fire near {damagedBuilding} radius 25
                 damagedBuilding = 0
             end if
         end if
-        if BUILT of damagedBuilding > tal_MaxBuiltToGodBuild
+        if HEALTH of damagedBuilding > tal_MaxBuiltToGodBuild
             damagedBuilding = 0
         end if
 
         if damagedBuilding exists
-            if damagedBuilding on fire
+            if fire near {damagedBuilding} radius 25
                 currentMana = get player ge_Player[godHandle] mana
-                while damagedBuilding exists and damagedBuilding on fire and geManaCostWater <= currentMana
+                while damagedBuilding exists and fire near {damagedBuilding} radius 25 and geManaCostWater <= currentMana
                     run script ge_ThrowMiracle(godHandle,GE_MIRACLE_TYPE_WATER,damagedBuilding,0)
                     currentMana -= geManaCostWater
                 end while

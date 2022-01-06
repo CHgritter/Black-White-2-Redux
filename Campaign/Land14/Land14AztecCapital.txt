@@ -62,50 +62,6 @@ start
     Threshold = Threshold / 3
     set migration threshold from AztecCapital to PlayerTown AZTECCAPITAL_IMPRESSIVENESS - Threshold
 
-    if PLAYER of AztecTown1 == 0
-        enable migration from AztecTown2 to AztecTown1
-        enable migration from AztecTown3 to AztecTown1
-        enable migration from AztecCapital to AztecTown1
-        
-    elsif PLAYER of AztecTown1 >= 1
-        disable migration from AztecTown2 to AztecTown1
-        disable migration from AztecTown3 to AztecTown1
-        disable migration from AztecCapital to AztecTown1
-    end if
-
-    if PLAYER of AztecTown2 == 0
-        enable migration from AztecTown1 to AztecTown2
-        enable migration from AztecTown3 to AztecTown2
-        enable migration from AztecCapital to AztecTown2
-        
-    elsif PLAYER of AztecTown2 >= 1
-        disable migration from AztecTown1 to AztecTown2
-        disable migration from AztecTown3 to AztecTown2
-        disable migration from AztecCapital to AztecTown2
-    end if
-
-    if PLAYER of AztecTown3 == 0
-        enable migration from AztecTown1 to AztecTown3
-        enable migration from AztecTown2 to AztecTown3
-        enable migration from AztecCapital to AztecTown3
-        
-    elsif PLAYER of AztecTown3 >= 1
-        disable migration from AztecTown1 to AztecTown3
-        disable migration from AztecTown2 to AztecTown3
-        disable migration from AztecCapital to AztecTown3
-    end if
-
-    if PLAYER of AztecCapital == 0
-        enable migration from AztecTown1 to AztecCapital
-        enable migration from AztecTown2 to AztecCapital
-        enable migration from AztecTown3 to AztecCapital
-        
-    elsif PLAYER of AztecCapital >= 1
-        disable migration from AztecTown1 to AztecCapital
-        disable migration from AztecTown2 to AztecCapital
-        disable migration from AztecTown3 to AztecCapital
-    end if
-
 end script LC14_Aztec_Capital_Impressiveness
 
 begin script LC14_TownConversion
@@ -121,6 +77,11 @@ begin script LC14_TownConversion
     
 start
 
+disable migration from PlayerTown to AztecTown1
+disable migration from PlayerTown to AztecTown2
+disable migration from PlayerTown to AztecTown3
+disable migration from PlayerTown to AztecCapital
+
 begin loop
 
     isConverted1 = variable get town AztecTown1 method of last conversion
@@ -129,18 +90,20 @@ begin loop
     isConverted4 = variable get town AztecCapital method of last conversion
     
     if isConverted1 != 0 and a == 0
-        if PLAYER of AztecTown1 == 0 or get town AztecTown1 is migrating to == PlayerTown
-            a = 1
-            TownsConverted = TownsConverted + 1
-            if isConverted1 == 1
-                TownsAggressiveConverted = TownsAggressiveConverted + 1
-            elsif isConverted1 == 2
-                TownsPeacefulConverted = TownsPeacefulConverted + 1
+        if variable get town AztecTown1 status == variable TOWN_STATUS_MIGRATION_STARTED or PLAYER of AztecTown1 == 0
+            if PLAYER of get town AztecTown1 is migrating to == 0 or PLAYER of AztecTown1 == 0
+                a = 1
+                TownsConverted = TownsConverted + 1
+                if isConverted1 == 1
+                    TownsAggressiveConverted = TownsAggressiveConverted + 1
+                elsif isConverted1 == 2
+                    TownsPeacefulConverted = TownsPeacefulConverted + 1
+                end if
             end if
         end if
     end if
     
-    if isConverted1 != 0
+    if isConverted1 == 1
         if PLAYER of AztecCapital == 1
             disable migration from AztecTown1 to AztecTown2
             disable migration from AztecTown1 to AztecTown3
@@ -152,21 +115,28 @@ begin loop
             enable migration from AztecTown1 to AztecCapital
             enable migration from AztecTown1 to PlayerTown
         end if
+    else
+        enable migration from AztecTown1 to AztecTown2
+        enable migration from AztecTown1 to AztecTown3
+        enable migration from AztecTown1 to AztecCapital
+        enable migration from AztecTown1 to PlayerTown
     end if
 
     if isConverted2 != 0 and b == 0
-        if PLAYER of AztecTown2 == 0 or get town AztecTown2 is migrating to == PlayerTown
-            b = 1
-            TownsConverted = TownsConverted + 1
-            if isConverted2 == 1
-                TownsAggressiveConverted = TownsAggressiveConverted + 1
-            elsif isConverted2 == 2
-                TownsPeacefulConverted = TownsPeacefulConverted + 1
+        if variable get town AztecTown2 status == variable TOWN_STATUS_MIGRATION_STARTED or PLAYER of AztecTown2 == 0
+            if PLAYER of get town AztecTown2 is migrating to == 0 or PLAYER of AztecTown2 == 0
+                b = 1
+                TownsConverted = TownsConverted + 1
+                if isConverted2 == 1
+                    TownsAggressiveConverted = TownsAggressiveConverted + 1
+                elsif isConverted2 == 2
+                    TownsPeacefulConverted = TownsPeacefulConverted + 1
+                end if
             end if
         end if
     end if
 
-    if isConverted2 != 0
+    if isConverted2 == 1
         if PLAYER of AztecCapital == 1
             disable migration from AztecTown2 to AztecTown1
             disable migration from AztecTown2 to AztecTown3
@@ -178,21 +148,33 @@ begin loop
             enable migration from AztecTown2 to AztecCapital
             enable migration from AztecTown2 to PlayerTown
         end if
+    else
+        enable migration from AztecTown2 to AztecTown1
+        enable migration from AztecTown2 to AztecTown3
+        enable migration from AztecTown2 to AztecCapital
+        enable migration from AztecTown2 to PlayerTown
     end if
     
+    disable migration from AztecTown3 to AztecTown1
+    disable migration from AztecTown3 to AztecTown2
+    disable migration from AztecTown3 to AztecCapital
+    disable migration from AztecTown3 to PlayerTown
+    /*
     if isConverted3 != 0 and c == 0
-        if PLAYER of AztecTown3 == 0 or get town AztecTown3 is migrating to == PlayerTown
-            c = 1
-            TownsConverted = TownsConverted + 1
-            if isConverted3 == 1
-                TownsAggressiveConverted = TownsAggressiveConverted + 1
-            elsif isConverted3 == 2
-                TownsPeacefulConverted = TownsPeacefulConverted + 1
+        if variable get town AztecTown3 status == variable TOWN_STATUS_MIGRATION_STARTED or PLAYER of AztecTown3 == 0
+            if PLAYER of get town AztecTown3 is migrating to == 0 or PLAYER of AztecTown3 == 0
+                c = 1
+                TownsConverted = TownsConverted + 1
+                if isConverted3 == 1
+                    TownsAggressiveConverted = TownsAggressiveConverted + 1
+                elsif isConverted3 == 2
+                    TownsPeacefulConverted = TownsPeacefulConverted + 1
+                end if
             end if
         end if
     end if    
     
-    if isConverted3 != 0
+    if isConverted3 == 1
         if PLAYER of AztecTown3 == 1
             disable migration from AztecTown3 to AztecTown1
             disable migration from AztecTown3 to AztecTown2
@@ -204,21 +186,29 @@ begin loop
             enable migration from AztecTown3 to AztecCapital
             enable migration from AztecTown3 to PlayerTown
         end if
+    else
+        enable migration from AztecTown3 to AztecTown1
+        enable migration from AztecTown3 to AztecTown2
+        enable migration from AztecTown3 to AztecCapital
+        enable migration from AztecTown3 to PlayerTown
     end if
+    */
 
     if isConverted4 != 0 and d == 0
-        if PLAYER of AztecCapital == 0 or get town AztecCapital is migrating to == PlayerTown
-            d = 1
-            TownsConverted = TownsConverted + 1
-            if isConverted4 == 1
-                TownsAggressiveConverted = TownsAggressiveConverted + 1
-            elsif isConverted4 == 2
-                TownsPeacefulConverted = TownsPeacefulConverted + 1
+        if variable get town AztecCapital status == variable TOWN_STATUS_MIGRATION_STARTED or PLAYER of AztecCapital == 0
+            if PLAYER of get town AztecCapital is migrating to == 0 or PLAYER of AztecCapital == 0
+                d = 1
+                TownsConverted = TownsConverted + 1
+                if isConverted4 == 1
+                    TownsAggressiveConverted = TownsAggressiveConverted + 1
+                elsif isConverted4 == 2
+                    TownsPeacefulConverted = TownsPeacefulConverted + 1
+                end if
             end if
         end if
     end if    
     
-    if isConverted4 != 0
+    if isConverted4 == 1
         if PLAYER of AztecCapital == 1
             disable migration from AztecCapital to AztecTown1
             disable migration from AztecCapital to AztecTown2
@@ -230,6 +220,11 @@ begin loop
             enable migration from AztecCapital to AztecTown3
             enable migration from AztecCapital to PlayerTown
         end if
+    else
+        enable migration from AztecCapital to AztecTown1
+        enable migration from AztecCapital to AztecTown2
+        enable migration from AztecCapital to AztecTown3
+        enable migration from AztecCapital to PlayerTown
     end if
 
 end loop
@@ -1613,21 +1608,21 @@ start
     //EARTHQUAKE
 
     if Difficulty >= 4
+        add resource WOOD 2000 to PlayerTown
+        add resource ORE 2000 to PlayerTown
+        add resource FOOD 1000 to PlayerTown
+    elsif Difficulty == 3
         add resource WOOD 3000 to PlayerTown
         add resource ORE 3000 to PlayerTown
+        add resource FOOD 2000 to PlayerTown
+    elsif Difficulty == 2
+        add resource WOOD 4000 to PlayerTown
+        add resource ORE 4000 to PlayerTown
         add resource FOOD 3000 to PlayerTown
-    elsif Difficulty == 3
+    elsif Difficulty == 1
         add resource WOOD 5000 to PlayerTown
         add resource ORE 5000 to PlayerTown
         add resource FOOD 5000 to PlayerTown
-    elsif Difficulty == 2
-        add resource WOOD 7500 to PlayerTown
-        add resource ORE 7500 to PlayerTown
-        add resource FOOD 7500 to PlayerTown
-    elsif Difficulty == 1
-        add resource WOOD 10000 to PlayerTown
-        add resource ORE 10000 to PlayerTown
-        add resource FOOD 10000 to PlayerTown
     end if
 
     //AztecCapital Walls
@@ -3718,7 +3713,7 @@ begin loop
             
             wait number from 6 to 10 seconds
             Counter++
-            until Counter >= 50 or PLAYER of AztecCapital != 1 or size of AztecCapital >= 600
+            until Counter >= 50 or PLAYER of AztecCapital != 1 or (size of AztecCapital - get army size in town AztecCapital) >= 400
         end loop
     end if
 
@@ -3775,7 +3770,7 @@ begin loop
             
             wait number from 6 to 10 seconds
             Counter++
-            until Counter >= 40 or PLAYER of AztecTown1 != 1 or size of AztecTown1 >= 400
+            until Counter >= 40 or PLAYER of AztecTown1 != 1 or (size of AztecTown1 - get army size in town AztecTown1) >= 250
         end loop
     end if
 
@@ -3832,7 +3827,7 @@ begin loop
             
             wait number from 6 to 10 seconds
             Counter++
-            until Counter >= 30 or PLAYER of AztecTown2 != 1 or size of AztecTown2 >= 275
+            until Counter >= 30 or PLAYER of AztecTown2 != 1 or (size of AztecTown1 - get army size in town AztecTown1) >= 200
         end loop
     end if
 

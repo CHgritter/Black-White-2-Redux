@@ -114,6 +114,14 @@ start
         AZTECCAPITAL_IMPRESSIVENESS += 3000
     end if
 
+
+    if HardMode == 1
+        NORSERECRUITMENTMODIFIER = 0.75
+        JAPANESERECRUITMENTMODIFIER = 0.75
+        AZTECRECRUITMENTMODIFIER = 0.75
+        TALUSRECRUITMENTMODIFIER = 0.75
+    end if
+
     GB_PlayerTown = get town with id 3//For Global Script
     PlayerTown = get town with id 3
     AztecTown1 = get town with id 2
@@ -145,7 +153,7 @@ begin script LC14_CreateUndeadPlatoon(whichPlatoon,howManyVillagersToDelete,howM
 
 start
 
-    attach atmos "ghost_legion" to whichPlatoon range 40
+    attach 3d sound "SCRIPT24_SPOOKYLOOP" to whichPlatoon with volume 1.0
 
     myEffect = create visual effect VISUAL_EFFECT_TOWN_TAKEOVER_DEFENDER at {whichPlatoon} + {0,2,0} time 10
     set myEffect color red 148 green 0 blue 211
@@ -180,6 +188,9 @@ start
     ArmyFlag = get SCRIPT_OBJECT_TYPE_ARMY_FLAG at {whichPlatoon} radius 50
     override mesh for ArmyFlag with "..\models\m_bannerundead"
     disable platoon whichPlatoon camp
+    disable platoon whichPlatoon merge
+    disable platoon whichPlatoon split
+    disable platoon whichPlatoon can disband
 
     while counter < howManyVillagersToSpawn and counter < ArmySize
         //Create ghosts
@@ -188,6 +199,7 @@ start
         set myEffect color red 148 green 0 blue 211
         SCALE of myEffect = 0.1
         add villager Ghost[counter] to platoon whichPlatoon
+        disable anim events on Ghost[counter]
         disable Ghost[counter] hurt by fire
         disable Ghost[counter] set on fire
         run background script LC14_GhostScript(Ghost[counter],whichMesh)
@@ -210,6 +222,10 @@ begin script LC14_GhostScript(myGhost,whichMesh)
 start
 
     while myGhost exists and HEALTH of myGhost > 0.00 and LandWon == 0 and PLAYER of myGhost == 1
+        if SPEED of myGhost < 1.0
+            SPEED of myGhost = 1.0
+        end if
+        override myGhost anim "a_p_run_male_miserable"
         if whichMesh == s_aztecwarrior_ghost
             //set anim speed of myGhost to 0.75
             override mesh for myGhost with "..\skins\s_aztecwarrior_ghost"
@@ -302,7 +318,7 @@ start
 begin loop
     wait 2.5 seconds
     if get DifficultyTimer time remaining <= 0
-        RecruitModifier *= 1.15
+        RecruitModifier *= 1.25
         EpicModifier *= 1.25
         BuilderModifier *= 1.25
         DifficultyTimer = create timer for 1800 seconds
@@ -318,7 +334,7 @@ EpicModifierTemp = EpicModifier
 BuilderModifierTemp = BuilderModifier
 
 //Give the AI a comeback for 30 minutes
-RecruitSizeModifier = 2.0
+RecruitSizeModifier = 1.25
 //RecruitModifier = 1.25
 BuilderModifier = 1.25
 EpicModifier = 1.0

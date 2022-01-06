@@ -59,6 +59,7 @@ start
     set creature LC12_EnemyCreature CREATURE_SIZE 0.25
     begin loop
         wait 2.5 seconds
+        HEALTH of LC12_EnemyCreature = 1.0
         set LC12_EnemyCreature position to {0,0,0}
         until LC12_EnemyCreatureAllowed == 1 and HEALTH of LC12_EnemyCreature > 0.00
     end loop
@@ -75,9 +76,11 @@ start
 
         set creature LC12_EnemyCreature CREATURE_SIZE 1.0
         CREATURE_STRENGTH of LC12_EnemyCreature = 1.0
-        CREATURE_ALIGNMENT of LC12_EnemyCreature = -0.85
+        ALIGNMENT of LC12_EnemyCreature = -0.85
         CREATURE_FATNESS of LC12_EnemyCreature = 0.5
         HEALTH of LC12_EnemyCreature = 1.0
+
+        wait 1.5 seconds
 
         set camera position to {927.76,94.68,665.49}
         set camera focus to {AztecCapital} + {0,15,0}
