@@ -2,8 +2,6 @@
 //    Land 4 Outro
 //    ~~~~~~~~~~~~~
 //
-//    Start date:         04.02.17            By: Boxhead
-//    Update date:        27.05.17            By: Boxhead
 ///////////////////////////////////////////////////////////////////////////////
 
 define script LC4_Outro
@@ -23,7 +21,7 @@ begin script LC4_Outro
 
 start
 
-    wait until PLAYER of NorseTown != 1 and PLAYER of NorseCapital != 1 and PLAYER of PlayerTown != 1
+    wait until get player 1 town total == 0
     LandWon = 1
 
     PD_ForcedSaving = 1
@@ -40,11 +38,11 @@ start
     if PLAYER of NorseCapital == 0
         L4TownConversionMethod = 1
         set player 0 objective TRIBUTE_OBJECTIVE_SCRIPT_CONTROLLED_WIN_LAND with amount 1 text "BW2T_SCRIPT_07FINAL_SECONDARYOBJECTIVE_80" amount 1 description "BW2T_SCRIPT_06FINAL_SECONDARYOBJECTIVE_51" start value 0 reward 120000 alignment -0.05
-        CREATURE_ALIGNMENT of MyCreature = CREATURE_ALIGNMENT of MyCreature - 0.10
+        ALIGNMENT of MyCreature = ALIGNMENT of MyCreature - 0.10
     else
         L4TownConversionMethod = 2
-        set player 0 objective TRIBUTE_OBJECTIVE_SCRIPT_CONTROLLED_WIN_LAND with amount 1 text "BW2T_SCRIPT_07FINAL_SECONDARYOBJECTIVE_80" amount 1 description "BW2T_SCRIPT_06FINAL_SECONDARYOBJECTIVE_51" start value 0 reward 120000 alignment 0.10
-        CREATURE_ALIGNMENT of MyCreature = CREATURE_ALIGNMENT of MyCreature + 0.10
+        set player 0 objective TRIBUTE_OBJECTIVE_SCRIPT_CONTROLLED_WIN_LAND with amount 1 text "BW2T_SCRIPT_07FINAL_SECONDARYOBJECTIVE_80" amount 1 description "BW2T_SCRIPT_06FINAL_SECONDARYOBJECTIVE_51" start value 0 reward 120000 alignment 0.05
+        ALIGNMENT of MyCreature = ALIGNMENT of MyCreature + 0.10
     end if
     set player 0 objective TRIBUTE_OBJECTIVE_SCRIPT_CONTROLLED_WIN_LAND value 1
     wait 2 seconds
@@ -66,11 +64,7 @@ start
     begin cinema
         //AGC: Moved fade out & wait inside the cinema block
         set fade red 0 green 0 blue 0 time 2
-        wait 2 seconds
-        
-        run background script Land4Departure
-        
-        wait 2 seconds
+            wait 4 seconds
         
         reset camera path 
            
@@ -126,11 +120,7 @@ start
         begin cinema
             //AGC: Moved fade out & wait inside the cinema block
             set fade red 0 green 0 blue 0 time 2
-            wait 2 seconds
-            
-            run background script Land4Departure
-        
-            wait 2 seconds
+            wait 4 seconds
             
             force while Counter < 100
                 CreationPos = marker at get target from {1227.05,125.62,823.91} to {1227.65,121.46,755.46} distance -Counter-20 angle 0
@@ -192,6 +182,8 @@ start
         end cinema
 
     end if
+
+    run background script Land4Departure
 
 end script LC4_Outro
 

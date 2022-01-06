@@ -2,8 +2,6 @@
 //    Land 4 Intro
 //    ~~~~~~~~~~~~~~
 //
-//    Start date:     31.10.16            By: Boxhead
-//    Update date:    06.11.16            By: Boxhead
 ///////////////////////////////////////////////////////////////////////////////
 
 define script LC4_Intro

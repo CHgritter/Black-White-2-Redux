@@ -479,29 +479,15 @@ begin cinema
 
     //move game time 21.00 time 5
     //play sound "CHURCHBELL"
-/*
-    GL_GhostLegionStartPos= marker at get world position from GL_Skull to {-0.250, 0.025, -2.750}
-    GL_GhostLegion = create platoon PLATOON_INFO_SKELETON_MELEE at {GL_GhostLegionStartPos} with 12 men and 0 women
-    PLAYER of GL_GhostLegion = 0
-    //run script ResetGL_GhostLegionStats
-    //set GL_GhostLegion ghost alpha 0.4 red 0.1 green 0.2 blue 0.6 specular 0.1
-    set platoon GL_GhostLegion formation to 3 wide by 4 deep with 1 spacing
-    set GL_GhostLegion position to {GL_GhostLegionStartPos}
-    GhostlyDestination = marker at get world position from GL_Skull to {2.502, -0.170, 18.126}
-    set GL_GhostLegion focus to {GhostlyDestination}
-    //set platoon movement value FORMATION_MOVEMENT_STAT_AGENT_MASS of GL_GhostLegion to 2.50
-    set platoon movement value FORMATION_MOVEMENT_STAT_DECELLERATION_DIST of GL_GhostLegion to 1.00
-    set platoon movement value FORMATION_MOVEMENT_STAT_ACCELERATION_MAX of GL_GhostLegion to 1.00
-    set platoon movement value FORMATION_MOVEMENT_STAT_AGENT_SPEED_MAX of GL_GhostLegion to 2.00
-    set platoon movement value FORMATION_MOVEMENT_STAT_AGENT_SPEED_MIN of GL_GhostLegion to 0.20
-    set platoon movement value FORMATION_MOVEMENT_STAT_PLATOON_SPEED of GL_GhostLegion to 1.80
-    set platoon movement value FORMATION_MOVEMENT_STAT_POSITION_ACCURACY of GL_GhostLegion to 0.01
-    */
 
     GhostlyDestination = marker at get world position from GL_Skull to {-0.530, 0.037, 16.435}
 
     GL_GhostLegion = create platoon PLATOON_INFO_SKELETON_MELEE at {2268.760, 160.292, 1632.993} with 12 men and 0 women
     PLAYER of GL_GhostLegion = 0
+    disable platoon GL_GhostLegion merge
+    disable platoon GL_GhostLegion split
+    disable platoon GL_GhostLegion can disband
+    disable platoon GL_GhostLegion camp
     run background script PT_CreateBasicGreekPlatoon(GL_GhostLegion,0)
 
     while counter <12
@@ -576,12 +562,6 @@ begin cinema
     wait 1 seconds    
     set fade red 255 green 255 blue 255 time 4
     wait 2 seconds    
-    ///speed those badboys up here
-    /*set platoon movement value FORMATION_MOVEMENT_STAT_AGENT_SPEED_MAX of GL_GhostLegion to 100.7
-    //set platoon movement value FORMATION_MOVEMENT_STAT_PLATOON_SPEED of GL_GhostLegion to 100.7
-    set platoon movement value FORMATION_MOVEMENT_STAT_ACCELERATION_MAX of GL_GhostLegion to 100.7
-    set platoon movement value FORMATION_MOVEMENT_STAT_DECELLERATION_DIST of GL_GhostLegion to 0
-    set platoon movement value FORMATION_MOVEMENT_STAT_AGENT_SPEED_MIN of GL_GhostLegion to 80*/
 
     //set platoon movement value FORMATION_MOVEMENT_STAT_POSITION_ACCURACY of GL_GhostLegion to 0
 

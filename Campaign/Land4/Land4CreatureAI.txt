@@ -2,8 +2,6 @@
 //    Land 4 Creature AI
 //    ~~~~~~~~~~~~~~~~~~~
 //
-//    Start date:     31.10.16            By: Boxhead
-//    Update date:    06.02.17            By: Boxhead
 ///////////////////////////////////////////////////////////////////////////////
 
 //-----------------------------------------------------------------------------
@@ -39,7 +37,7 @@ start
 
     set creature LC4_EnemyCreature CREATURE_SIZE 0.4
     CREATURE_STRENGTH of LC4_EnemyCreature = 0.4
-    CREATURE_ALIGNMENT of LC4_EnemyCreature = 0.1
+    ALIGNMENT of LC4_EnemyCreature = 0.1
     CREATURE_FATNESS of LC4_EnemyCreature = 0.4
 
     if HardMode == 1

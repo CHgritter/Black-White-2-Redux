@@ -2,8 +2,6 @@
 //    Land 6 Globals
 //    ~~~~~~~~~~~~~~~
 //
-//    Start date:     05.02.17            By: Boxhead
-//    Update date:    30.09.18            By: Boxhead
 ///////////////////////////////////////////////////////////////////////////////
 
 // Other Defines
@@ -52,8 +50,8 @@ global MinorTown7 = 0
 global MinorTown8 = 0
 global MinorTown9 = 0
 global MinorTown10 = 0
-global MinorJapaneseTown1 = 0
-global MinorJapaneseTown2 = 0
+global JapaneseTown1 = 0
+global JapaneseTown2 = 0
 global JapaneseCapital = 0
 
 global MINOR_TOWN1_IMPRESSIVENESS = 1912
@@ -77,16 +75,16 @@ SecondPlaythrough = 0
 
 start
 
-    MINOR_TOWN4_IMPRESSIVENESS = MINOR_TOWN4_IMPRESSIVENESS *  ImpressivenessModifier
-    MINOR_TOWN5_IMPRESSIVENESS = MINOR_TOWN5_IMPRESSIVENESS *  ImpressivenessModifier
-    MINOR_TOWN6_IMPRESSIVENESS = MINOR_TOWN6_IMPRESSIVENESS *  ImpressivenessModifier
-    MINOR_TOWN7_IMPRESSIVENESS = MINOR_TOWN7_IMPRESSIVENESS *  ImpressivenessModifier
-    MINOR_TOWN8_IMPRESSIVENESS = MINOR_TOWN8_IMPRESSIVENESS *  ImpressivenessModifier
-    MINOR_TOWN9_IMPRESSIVENESS = MINOR_TOWN9_IMPRESSIVENESS *  ImpressivenessModifier
-    MINOR_TOWN10_IMPRESSIVENESS = MINOR_TOWN10_IMPRESSIVENESS *  ImpressivenessModifier
-    MINOR_JAPTOWN1_IMPRESSIVENESS = MINOR_JAPTOWN1_IMPRESSIVENESS *  ImpressivenessModifier
-    MINOR_JAPTOWN2_IMPRESSIVENESS = MINOR_JAPTOWN2_IMPRESSIVENESS *  ImpressivenessModifier
-    MINOR_JAPCAPITAL_IMPRESSIVENESS = MINOR_JAPCAPITAL_IMPRESSIVENESS *  ImpressivenessModifier
+    MINOR_TOWN4_IMPRESSIVENESS = MINOR_TOWN4_IMPRESSIVENESS * ImpressivenessModifier
+    MINOR_TOWN5_IMPRESSIVENESS = MINOR_TOWN5_IMPRESSIVENESS * ImpressivenessModifier
+    MINOR_TOWN6_IMPRESSIVENESS = MINOR_TOWN6_IMPRESSIVENESS * ImpressivenessModifier
+    MINOR_TOWN7_IMPRESSIVENESS = MINOR_TOWN7_IMPRESSIVENESS * ImpressivenessModifier
+    MINOR_TOWN8_IMPRESSIVENESS = MINOR_TOWN8_IMPRESSIVENESS * ImpressivenessModifier
+    MINOR_TOWN9_IMPRESSIVENESS = MINOR_TOWN9_IMPRESSIVENESS * ImpressivenessModifier
+    MINOR_TOWN10_IMPRESSIVENESS = MINOR_TOWN10_IMPRESSIVENESS * ImpressivenessModifier
+    MINOR_JAPTOWN1_IMPRESSIVENESS = MINOR_JAPTOWN1_IMPRESSIVENESS * ImpressivenessModifier
+    MINOR_JAPTOWN2_IMPRESSIVENESS = MINOR_JAPTOWN2_IMPRESSIVENESS * ImpressivenessModifier
+    MINOR_JAPCAPITAL_IMPRESSIVENESS = MINOR_JAPCAPITAL_IMPRESSIVENESS * ImpressivenessModifier
 
     SecondPlaythrough = persistent data "SECOND_PLAYTHROUGH"
     HardMode = persistent data "HARD_MODE"
@@ -126,6 +124,13 @@ start
         MINOR_JAPCAPITAL_IMPRESSIVENESS += 5000
     end if
 
+    if HardMode == 1
+        NORSERECRUITMENTMODIFIER = 0.75
+        JAPANESERECRUITMENTMODIFIER = 0.75
+        AZTECRECRUITMENTMODIFIER = 0.75
+        TALUSRECRUITMENTMODIFIER = 0.75
+    end if
+
     GB_PlayerTown = get town with id 0//For Global Script
     PlayerTown = get town with id 0
     MinorTown1 = get town with id 1
@@ -138,8 +143,8 @@ start
     MinorTown8 = get town with id 9
     MinorTown9 = get town with id 11
     MinorTown10 = get town with id 10
-    MinorJapaneseTown1 = get town with id 8
-    MinorJapaneseTown2 = get town with id 12
+    JapaneseTown1 = get town with id 8
+    JapaneseTown2 = get town with id 12
     JapaneseCapital = get town with id 13
     
     PlayerAlignmentFinal = get player 0 alignment
@@ -164,7 +169,7 @@ start
 begin loop
     wait 2.5 seconds
     if get DifficultyTimer time remaining <= 0
-        RecruitModifier *= 1.15
+        RecruitModifier *= 1.25
         EpicModifier *= 1.25
         BuilderModifier *= 1.25
         DifficultyTimer = create timer for 1800 seconds
@@ -180,7 +185,7 @@ EpicModifierTemp = EpicModifier
 BuilderModifierTemp = BuilderModifier
 
 //Give the AI a comeback for 30 minutes
-RecruitSizeModifier = 2.0
+RecruitSizeModifier = 1.25
 //RecruitModifier = 1.25
 BuilderModifier = 1.25
 EpicModifier = 1.0

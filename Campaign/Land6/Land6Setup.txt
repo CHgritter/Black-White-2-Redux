@@ -2,8 +2,6 @@
 //    Land 6 Script-Manager
 //    ~~~~~~~~~~~~~~~~~~~~~~~~~
 //
-//    Start date:     05.02.17            By: Boxhead
-//    Update date:    09.03.18            By: Boxhead
 ///////////////////////////////////////////////////////////////////////////////
 
 define script Land6Script
@@ -262,7 +260,7 @@ start
         AGE of MyCreature = persistent data "CREATURE_AGE"
         CREATURE_SIZE of MyCreature = persistent data "CREATURE_SIZE"
         CREATURE_STRENGTH of MyCreature = persistent data "CREATURE_STRENGTH"
-        CREATURE_ALIGNMENT of MyCreature = persistent data "CREATURE_ALIGNMENT"
+        ALIGNMENT of MyCreature = persistent data "CREATURE_ALIGNMENT"
         CREATURE_FATNESS of MyCreature = persistent data "CREATURE_FATNESS"
 
         release MyCreature

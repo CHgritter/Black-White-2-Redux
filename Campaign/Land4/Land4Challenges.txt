@@ -55,7 +55,6 @@
 /Redux/Campaign/Land4/Land4CreatureAI.txt
 /Redux/Campaign/Land4/Land4Objectives.txt
 /Redux/Campaign/Land4/Land4Missionaries.txt
-///Redux/Campaign/Land4/Land4ImpressPlayerTown.txt
 /Redux/Campaign/Land4/Land4UndeadLegion.txt
 /Redux/Campaign/Land4/Land4LostSheeps.txt
 /Redux/Campaign/Land4/Land4CreatureTutorial.txt

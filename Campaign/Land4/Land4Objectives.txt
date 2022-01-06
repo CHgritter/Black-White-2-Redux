@@ -2,8 +2,6 @@
 //    Land 4 Objectives
 //    ~~~~~~~~~~~~~~~~~~~
 //
-//    Start date:     31.10.16            By: Boxhead
-//    Update date:        31.10.16            By: Boxhead
 ///////////////////////////////////////////////////////////////////////////////
 
 define LO_FALSE = 0
