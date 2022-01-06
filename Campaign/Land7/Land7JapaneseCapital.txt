@@ -2,8 +2,6 @@
 //    Land 7 Japanese-Strategy
 //    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
-//    Start date:     02.03.18            By: Boxhead
-//    Update date:    08.03.18            By: Boxhead
 ///////////////////////////////////////////////////////////////////////////////
 
 define script LC7_Japanese_Capital_Impressiveness
@@ -70,195 +68,6 @@ start
     Threshold = Threshold / 3
     set migration threshold from JapaneseCapital to PlayerTown JAPANESE_CAPITAL_IMPRESSIVENESS - Threshold
 
-    if PLAYER of MinorTown1 == 0
-        enable migration from MinorTown2 to MinorTown1
-        enable migration from MinorTown3 to MinorTown1
-        enable migration from MinorTown4 to MinorTown1
-        enable migration from MinorTown5 to MinorTown1
-        enable migration from MinorTown6 to MinorTown1
-        enable migration from JapaneseTown1 to MinorTown1
-        enable migration from JapaneseTown2 to MinorTown1
-        enable migration from JapaneseCapital to MinorTown1
-        
-    elsif PLAYER of MinorTown1 >= 1
-        disable migration from MinorTown2 to MinorTown1
-        disable migration from MinorTown3 to MinorTown1
-        disable migration from MinorTown4 to MinorTown1
-        disable migration from MinorTown5 to MinorTown1
-        disable migration from MinorTown6 to MinorTown1
-        disable migration from JapaneseTown1 to MinorTown1
-        disable migration from JapaneseTown2 to MinorTown1
-        disable migration from JapaneseCapital to MinorTown1
-    end if
-    
-    if PLAYER of MinorTown2 == 0
-        enable migration from MinorTown1 to MinorTown2
-        enable migration from MinorTown3 to MinorTown2
-        enable migration from MinorTown4 to MinorTown2
-        enable migration from MinorTown5 to MinorTown2
-        enable migration from MinorTown6 to MinorTown2
-        enable migration from JapaneseTown1 to MinorTown2
-        enable migration from JapaneseTown2 to MinorTown2
-        enable migration from JapaneseCapital to MinorTown2
-        
-    elsif PLAYER of MinorTown2 >= 1
-        disable migration from MinorTown1 to MinorTown2
-        disable migration from MinorTown3 to MinorTown2
-        disable migration from MinorTown4 to MinorTown2
-        disable migration from MinorTown5 to MinorTown2
-        disable migration from MinorTown6 to MinorTown2
-        disable migration from JapaneseTown1 to MinorTown2
-        disable migration from JapaneseTown2 to MinorTown2
-        disable migration from JapaneseCapital to MinorTown2
-    end if
-    
-    if PLAYER of MinorTown3 == 0
-        enable migration from MinorTown1 to MinorTown3
-        enable migration from MinorTown2 to MinorTown3
-        enable migration from MinorTown4 to MinorTown3
-        enable migration from MinorTown5 to MinorTown3
-        enable migration from MinorTown6 to MinorTown3
-        enable migration from JapaneseTown1 to MinorTown3
-        enable migration from JapaneseTown2 to MinorTown3
-        enable migration from JapaneseCapital to MinorTown3
-        
-    elsif PLAYER of MinorTown3 >= 1
-        disable migration from MinorTown1 to MinorTown3
-        disable migration from MinorTown2 to MinorTown3
-        disable migration from MinorTown4 to MinorTown3
-        disable migration from MinorTown5 to MinorTown3
-        disable migration from MinorTown6 to MinorTown3
-        disable migration from JapaneseTown1 to MinorTown3
-        disable migration from JapaneseTown2 to MinorTown3
-        disable migration from JapaneseCapital to MinorTown3
-    end if
-    
-    if PLAYER of MinorTown4 == 0
-        enable migration from MinorTown1 to MinorTown4
-        enable migration from MinorTown2 to MinorTown4
-        enable migration from MinorTown3 to MinorTown4
-        enable migration from MinorTown5 to MinorTown4
-        enable migration from MinorTown6 to MinorTown4
-        enable migration from JapaneseTown1 to MinorTown4
-        enable migration from JapaneseTown2 to MinorTown4
-        enable migration from JapaneseCapital to MinorTown4
-        
-    elsif PLAYER of MinorTown4 >= 1
-        disable migration from MinorTown1 to MinorTown4
-        disable migration from MinorTown2 to MinorTown4
-        disable migration from MinorTown3 to MinorTown4
-        disable migration from MinorTown5 to MinorTown4
-        disable migration from MinorTown6 to MinorTown4
-        disable migration from JapaneseTown1 to MinorTown4
-        disable migration from JapaneseTown2 to MinorTown4
-        disable migration from JapaneseCapital to MinorTown4
-    end if
-    
-    if PLAYER of MinorTown5 == 0
-        enable migration from MinorTown1 to MinorTown5
-        enable migration from MinorTown2 to MinorTown5
-        enable migration from MinorTown3 to MinorTown5
-        enable migration from MinorTown4 to MinorTown5
-        enable migration from MinorTown6 to MinorTown5
-        enable migration from JapaneseTown1 to MinorTown5
-        enable migration from JapaneseTown2 to MinorTown5
-        enable migration from JapaneseCapital to MinorTown5
-        
-    elsif PLAYER of MinorTown5 >= 1
-        disable migration from MinorTown1 to MinorTown5
-        disable migration from MinorTown2 to MinorTown5
-        disable migration from MinorTown3 to MinorTown5
-        disable migration from MinorTown4 to MinorTown5
-        disable migration from MinorTown6 to MinorTown5
-        disable migration from JapaneseTown1 to MinorTown5
-        disable migration from JapaneseTown2 to MinorTown5
-        disable migration from JapaneseCapital to MinorTown5
-    end if
-    
-    if PLAYER of MinorTown6 == 0
-        enable migration from MinorTown1 to MinorTown6
-        enable migration from MinorTown2 to MinorTown6
-        enable migration from MinorTown3 to MinorTown6
-        enable migration from MinorTown4 to MinorTown6
-        enable migration from MinorTown5 to MinorTown6
-        enable migration from JapaneseTown1 to MinorTown6
-        enable migration from JapaneseTown2 to MinorTown6
-        enable migration from JapaneseCapital to MinorTown6
-        
-    elsif PLAYER of MinorTown6 >= 1
-        disable migration from MinorTown1 to MinorTown6
-        disable migration from MinorTown2 to MinorTown6
-        disable migration from MinorTown3 to MinorTown6
-        disable migration from MinorTown4 to MinorTown6
-        disable migration from MinorTown5 to MinorTown6
-        disable migration from JapaneseTown1 to MinorTown6
-        disable migration from JapaneseTown2 to MinorTown6
-        disable migration from JapaneseCapital to MinorTown6
-    end if
-    
-    if PLAYER of JapaneseTown1 == 0
-        enable migration from MinorTown1 to JapaneseTown1
-        enable migration from MinorTown2 to JapaneseTown1
-        enable migration from MinorTown3 to JapaneseTown1
-        enable migration from MinorTown4 to JapaneseTown1
-        enable migration from MinorTown5 to JapaneseTown1
-        enable migration from MinorTown6 to JapaneseTown1
-        enable migration from JapaneseTown2 to JapaneseTown1
-        enable migration from JapaneseCapital to JapaneseTown1
-        
-    elsif PLAYER of JapaneseTown1 >= 1
-        disable migration from MinorTown1 to JapaneseTown1
-        disable migration from MinorTown2 to JapaneseTown1
-        disable migration from MinorTown3 to JapaneseTown1
-        disable migration from MinorTown4 to JapaneseTown1
-        disable migration from MinorTown5 to JapaneseTown1
-        disable migration from MinorTown6 to JapaneseTown1
-        disable migration from JapaneseTown2 to JapaneseTown1
-        disable migration from JapaneseCapital to JapaneseTown1
-    end if
-    
-    if PLAYER of JapaneseTown2 == 0
-        enable migration from MinorTown1 to JapaneseTown2
-        enable migration from MinorTown2 to JapaneseTown2
-        enable migration from MinorTown3 to JapaneseTown2
-        enable migration from MinorTown4 to JapaneseTown2
-        enable migration from MinorTown5 to JapaneseTown2
-        enable migration from MinorTown6 to JapaneseTown2
-        enable migration from JapaneseTown1 to JapaneseTown2
-        enable migration from JapaneseCapital to JapaneseTown2
-        
-    elsif PLAYER of JapaneseTown2 >= 1
-        disable migration from MinorTown1 to JapaneseTown2
-        disable migration from MinorTown2 to JapaneseTown2
-        disable migration from MinorTown3 to JapaneseTown2
-        disable migration from MinorTown4 to JapaneseTown2
-        disable migration from MinorTown5 to JapaneseTown2
-        disable migration from MinorTown6 to JapaneseTown2
-        disable migration from JapaneseTown1 to JapaneseTown2
-        disable migration from JapaneseCapital to JapaneseTown2
-    end if
-    
-    if PLAYER of JapaneseCapital == 0
-        enable migration from MinorTown1 to JapaneseCapital
-        enable migration from MinorTown2 to JapaneseCapital
-        enable migration from MinorTown3 to JapaneseCapital
-        enable migration from MinorTown4 to JapaneseCapital
-        enable migration from MinorTown5 to JapaneseCapital
-        enable migration from MinorTown6 to JapaneseCapital
-        enable migration from JapaneseTown1 to JapaneseCapital
-        enable migration from JapaneseTown2 to JapaneseCapital
-        
-    elsif PLAYER of JapaneseCapital >= 1
-        disable migration from MinorTown1 to JapaneseCapital
-        disable migration from MinorTown2 to JapaneseCapital
-        disable migration from MinorTown3 to JapaneseCapital
-        disable migration from MinorTown4 to JapaneseCapital
-        disable migration from MinorTown5 to JapaneseCapital
-        disable migration from MinorTown6 to JapaneseCapital
-        disable migration from JapaneseTown1 to JapaneseCapital
-        disable migration from JapaneseTown2 to JapaneseCapital
-    end if
-
 end script LC7_Japanese_Capital_Impressiveness
 
 begin script LC7_TownConversion
@@ -284,6 +93,16 @@ begin script LC7_TownConversion
     
 start
 
+disable migration from PlayerTown to MinorTown1
+disable migration from PlayerTown to MinorTown2
+disable migration from PlayerTown to MinorTown3
+disable migration from PlayerTown to MinorTown4
+disable migration from PlayerTown to MinorTown5
+disable migration from PlayerTown to MinorTown6
+disable migration from PlayerTown to JapaneseTown1
+disable migration from PlayerTown to JapaneseTown2
+disable migration from PlayerTown to JapaneseCapital
+
 begin loop
 
     isConverted1 = variable get town MinorTown1 method of last conversion
@@ -297,18 +116,20 @@ begin loop
     isConverted9 = variable get town JapaneseCapital method of last conversion
 
     if isConverted1 != 0 and a == 0
-        if PLAYER of MinorTown1 == 0 or get town MinorTown1 is migrating to == PlayerTown
-            a = 1
-            TownsConverted = TownsConverted + 1
-            if isConverted1 == 1
-                TownsAggressiveConverted = TownsAggressiveConverted + 1
-            elsif isConverted1 == 2
-                TownsPeacefulConverted = TownsPeacefulConverted + 1
+        if variable get town MinorTown1 status == variable TOWN_STATUS_MIGRATION_STARTED or PLAYER of MinorTown1 == 0
+            if PLAYER of get town MinorTown1 is migrating to == 0 or PLAYER of MinorTown1 == 0
+                a = 1
+                TownsConverted = TownsConverted + 1
+                if isConverted1 == 1
+                    TownsAggressiveConverted = TownsAggressiveConverted + 1
+                elsif isConverted1 == 2
+                    TownsPeacefulConverted = TownsPeacefulConverted + 1
+                end if
             end if
         end if
     end if
 
-    if isConverted1 != 0
+    if isConverted1 == 1
         if PLAYER of JapaneseCapital == 1
             disable migration from MinorTown1 to MinorTown2
             disable migration from MinorTown1 to MinorTown3
@@ -330,21 +151,33 @@ begin loop
             enable migration from MinorTown1 to JapaneseCapital
             enable migration from MinorTown1 to PlayerTown
         end if
+    else
+        enable migration from MinorTown1 to MinorTown2
+        enable migration from MinorTown1 to MinorTown3
+        enable migration from MinorTown1 to MinorTown4
+        enable migration from MinorTown1 to MinorTown5
+        enable migration from MinorTown1 to MinorTown6
+        enable migration from MinorTown1 to JapaneseTown1
+        enable migration from MinorTown1 to JapaneseTown2
+        enable migration from MinorTown1 to JapaneseCapital
+        enable migration from MinorTown1 to PlayerTown
     end if
     
     if isConverted2 != 0 and b == 0
-        if PLAYER of MinorTown2 == 0 or get town MinorTown2 is migrating to == PlayerTown
-            b = 1
-            TownsConverted = TownsConverted + 1
-            if isConverted2 == 1
-                TownsAggressiveConverted = TownsAggressiveConverted + 1
-            elsif isConverted2 == 2
-                TownsPeacefulConverted = TownsPeacefulConverted + 1
+        if variable get town MinorTown2 status == variable TOWN_STATUS_MIGRATION_STARTED or PLAYER of MinorTown2 == 0
+            if PLAYER of get town MinorTown2 is migrating to == 0 or PLAYER of MinorTown2 == 0
+                b = 1
+                TownsConverted = TownsConverted + 1
+                if isConverted2 == 1
+                    TownsAggressiveConverted = TownsAggressiveConverted + 1
+                elsif isConverted2 == 2
+                    TownsPeacefulConverted = TownsPeacefulConverted + 1
+                end if
             end if
         end if
     end if
 
-    if isConverted2 != 0
+    if isConverted2 == 1
         if PLAYER of JapaneseCapital == 1
             disable migration from MinorTown2 to MinorTown1
             disable migration from MinorTown2 to MinorTown3
@@ -366,21 +199,33 @@ begin loop
             enable migration from MinorTown2 to JapaneseCapital
             enable migration from MinorTown2 to PlayerTown
         end if
+    else
+        enable migration from MinorTown2 to MinorTown1
+        enable migration from MinorTown2 to MinorTown3
+        enable migration from MinorTown2 to MinorTown4
+        enable migration from MinorTown2 to MinorTown5
+        enable migration from MinorTown2 to MinorTown6
+        enable migration from MinorTown2 to JapaneseTown1
+        enable migration from MinorTown2 to JapaneseTown2
+        enable migration from MinorTown2 to JapaneseCapital
+        enable migration from MinorTown2 to PlayerTown
     end if
     
     if isConverted3 != 0 and c == 0
-        if PLAYER of MinorTown3 == 0 or get town MinorTown3 is migrating to == PlayerTown
-            c = 1
-            TownsConverted = TownsConverted + 1
-            if isConverted3 == 1
-                TownsAggressiveConverted = TownsAggressiveConverted + 1
-            elsif isConverted3 == 2
-                TownsPeacefulConverted = TownsPeacefulConverted + 1
+        if variable get town MinorTown3 status == variable TOWN_STATUS_MIGRATION_STARTED or PLAYER of MinorTown3 == 0
+            if PLAYER of get town MinorTown3 is migrating to == 0 or PLAYER of MinorTown3 == 0
+                c = 1
+                TownsConverted = TownsConverted + 1
+                if isConverted3 == 1
+                    TownsAggressiveConverted = TownsAggressiveConverted + 1
+                elsif isConverted3 == 2
+                    TownsPeacefulConverted = TownsPeacefulConverted + 1
+                end if
             end if
         end if
     end if
 
-    if isConverted3 != 0
+    if isConverted3 == 1
         if PLAYER of JapaneseCapital == 1
             disable migration from MinorTown3 to MinorTown1
             disable migration from MinorTown3 to MinorTown2
@@ -402,21 +247,33 @@ begin loop
             enable migration from MinorTown3 to JapaneseCapital
             enable migration from MinorTown3 to PlayerTown
         end if
+    else
+        enable migration from MinorTown3 to MinorTown1
+        enable migration from MinorTown3 to MinorTown2
+        enable migration from MinorTown3 to MinorTown4
+        enable migration from MinorTown3 to MinorTown5
+        enable migration from MinorTown3 to MinorTown6
+        enable migration from MinorTown3 to JapaneseTown1
+        enable migration from MinorTown3 to JapaneseTown2
+        enable migration from MinorTown3 to JapaneseCapital
+        enable migration from MinorTown3 to PlayerTown
     end if
     
     if isConverted4 != 0 and d == 0
-        if PLAYER of MinorTown4 == 0 or get town MinorTown4 is migrating to == PlayerTown
-            d = 1
-            TownsConverted = TownsConverted + 1
-            if isConverted4 == 1
-                TownsAggressiveConverted = TownsAggressiveConverted + 1
-            elsif isConverted4 == 2
-                TownsPeacefulConverted = TownsPeacefulConverted + 1
+        if variable get town MinorTown4 status == variable TOWN_STATUS_MIGRATION_STARTED or PLAYER of MinorTown4 == 0
+            if PLAYER of get town MinorTown4 is migrating to == 0 or PLAYER of MinorTown4 == 0
+                d = 1
+                TownsConverted = TownsConverted + 1
+                if isConverted4 == 1
+                    TownsAggressiveConverted = TownsAggressiveConverted + 1
+                elsif isConverted4 == 2
+                    TownsPeacefulConverted = TownsPeacefulConverted + 1
+                end if
             end if
         end if
     end if
 
-    if isConverted4 != 0
+    if isConverted4 == 1
         if PLAYER of JapaneseCapital == 1
             disable migration from MinorTown4 to MinorTown1
             disable migration from MinorTown4 to MinorTown2
@@ -438,21 +295,33 @@ begin loop
             enable migration from MinorTown4 to JapaneseCapital
             enable migration from MinorTown4 to PlayerTown
         end if
+    else
+        enable migration from MinorTown4 to MinorTown1
+        enable migration from MinorTown4 to MinorTown2
+        enable migration from MinorTown4 to MinorTown3
+        enable migration from MinorTown4 to MinorTown5
+        enable migration from MinorTown4 to MinorTown6
+        enable migration from MinorTown4 to JapaneseTown1
+        enable migration from MinorTown4 to JapaneseTown2
+        enable migration from MinorTown4 to JapaneseCapital
+        enable migration from MinorTown4 to PlayerTown
     end if
     
     if isConverted5 != 0 and e == 0
-        if PLAYER of MinorTown5 == 0 or get town MinorTown5 is migrating to == PlayerTown
-            e = 1
-            TownsConverted = TownsConverted + 1
-            if isConverted5 == 1
-                TownsAggressiveConverted = TownsAggressiveConverted + 1
-            elsif isConverted5 == 2
-                TownsPeacefulConverted = TownsPeacefulConverted + 1
+        if variable get town MinorTown5 status == variable TOWN_STATUS_MIGRATION_STARTED or PLAYER of MinorTown5 == 0
+            if PLAYER of get town MinorTown5 is migrating to == 0 or PLAYER of MinorTown5 == 0
+                e = 1
+                TownsConverted = TownsConverted + 1
+                if isConverted5 == 1
+                    TownsAggressiveConverted = TownsAggressiveConverted + 1
+                elsif isConverted5 == 2
+                    TownsPeacefulConverted = TownsPeacefulConverted + 1
+                end if
             end if
         end if
     end if
 
-    if isConverted5 != 0
+    if isConverted5 == 1
         if PLAYER of JapaneseCapital == 1
             disable migration from MinorTown5 to MinorTown1
             disable migration from MinorTown5 to MinorTown2
@@ -474,21 +343,33 @@ begin loop
             enable migration from MinorTown5 to JapaneseCapital
             enable migration from MinorTown5 to PlayerTown
         end if
+    else
+        enable migration from MinorTown5 to MinorTown1
+        enable migration from MinorTown5 to MinorTown2
+        enable migration from MinorTown5 to MinorTown3
+        enable migration from MinorTown5 to MinorTown4
+        enable migration from MinorTown5 to MinorTown6
+        enable migration from MinorTown5 to JapaneseTown1
+        enable migration from MinorTown5 to JapaneseTown2
+        enable migration from MinorTown5 to JapaneseCapital
+        enable migration from MinorTown5 to PlayerTown
     end if
     
     if isConverted6 != 0 and f == 0
-        if PLAYER of MinorTown6 == 0 or get town MinorTown6 is migrating to == PlayerTown
-            f = 1
-            TownsConverted = TownsConverted + 1
-            if isConverted6 == 1
-                TownsAggressiveConverted = TownsAggressiveConverted + 1
-            elsif isConverted6 == 2
-                TownsPeacefulConverted = TownsPeacefulConverted + 1
+        if variable get town MinorTown6 status == variable TOWN_STATUS_MIGRATION_STARTED or PLAYER of MinorTown6 == 0
+            if PLAYER of get town MinorTown6 is migrating to == 0 or PLAYER of MinorTown6 == 0
+                f = 1
+                TownsConverted = TownsConverted + 1
+                if isConverted6 == 1
+                    TownsAggressiveConverted = TownsAggressiveConverted + 1
+                elsif isConverted6 == 2
+                    TownsPeacefulConverted = TownsPeacefulConverted + 1
+                end if
             end if
         end if
     end if
 
-    if isConverted6 != 0
+    if isConverted6 == 1
         if PLAYER of JapaneseCapital == 1
             disable migration from MinorTown6 to MinorTown1
             disable migration from MinorTown6 to MinorTown2
@@ -510,21 +391,33 @@ begin loop
             enable migration from MinorTown6 to JapaneseCapital
             enable migration from MinorTown6 to PlayerTown
         end if
+    else
+        enable migration from MinorTown6 to MinorTown1
+        enable migration from MinorTown6 to MinorTown2
+        enable migration from MinorTown6 to MinorTown3
+        enable migration from MinorTown6 to MinorTown4
+        enable migration from MinorTown6 to MinorTown5
+        enable migration from MinorTown6 to JapaneseTown1
+        enable migration from MinorTown6 to JapaneseTown2
+        enable migration from MinorTown6 to JapaneseCapital
+        enable migration from MinorTown6 to PlayerTown
     end if
     
     if isConverted7 != 0 and g == 0
-        if PLAYER of JapaneseTown1 == 0 or get town JapaneseTown1 is migrating to == PlayerTown
-            g = 1
-            TownsConverted = TownsConverted + 1
-            if isConverted7 == 1
-                TownsAggressiveConverted = TownsAggressiveConverted + 1
-            elsif isConverted7 == 2
-                TownsPeacefulConverted = TownsPeacefulConverted + 1
+        if variable get town JapaneseTown1 status == variable TOWN_STATUS_MIGRATION_STARTED or PLAYER of JapaneseTown1 == 0
+            if PLAYER of get town JapaneseTown1 is migrating to == 0 or PLAYER of JapaneseTown1 == 0
+                g = 1
+                TownsConverted = TownsConverted + 1
+                if isConverted7 == 1
+                    TownsAggressiveConverted = TownsAggressiveConverted + 1
+                elsif isConverted7 == 2
+                    TownsPeacefulConverted = TownsPeacefulConverted + 1
+                end if
             end if
         end if
     end if    
 
-    if isConverted7 != 0
+    if isConverted7 == 1
         if PLAYER of JapaneseCapital == 1
             disable migration from JapaneseTown1 to MinorTown1
             disable migration from JapaneseTown1 to MinorTown2
@@ -546,21 +439,33 @@ begin loop
             enable migration from JapaneseTown1 to JapaneseCapital
             enable migration from JapaneseTown1 to PlayerTown
         end if
+    else
+        enable migration from JapaneseTown1 to MinorTown1
+        enable migration from JapaneseTown1 to MinorTown2
+        enable migration from JapaneseTown1 to MinorTown3
+        enable migration from JapaneseTown1 to MinorTown4
+        enable migration from JapaneseTown1 to MinorTown5
+        enable migration from JapaneseTown1 to MinorTown6
+        enable migration from JapaneseTown1 to JapaneseTown2
+        enable migration from JapaneseTown1 to JapaneseCapital
+        enable migration from JapaneseTown1 to PlayerTown
     end if
     
     if isConverted8 != 0 and h == 0
-        if PLAYER of JapaneseTown2 == 0 or get town JapaneseTown2 is migrating to == PlayerTown
-            h = 1
-            TownsConverted = TownsConverted + 1
-            if isConverted8 == 1
-                TownsAggressiveConverted = TownsAggressiveConverted + 1
-            elsif isConverted8 == 2
-                TownsPeacefulConverted = TownsPeacefulConverted + 1
+        if variable get town JapaneseTown2 status == variable TOWN_STATUS_MIGRATION_STARTED or PLAYER of JapaneseTown2 == 0
+            if PLAYER of get town JapaneseTown2 is migrating to == 0 or PLAYER of JapaneseTown2 == 0
+                h = 1
+                TownsConverted = TownsConverted + 1
+                if isConverted8 == 1
+                    TownsAggressiveConverted = TownsAggressiveConverted + 1
+                elsif isConverted8 == 2
+                    TownsPeacefulConverted = TownsPeacefulConverted + 1
+                end if
             end if
         end if
     end if
 
-    if isConverted8 != 0
+    if isConverted8 == 1
         if PLAYER of JapaneseCapital == 1
             disable migration from JapaneseTown2 to MinorTown1
             disable migration from JapaneseTown2 to MinorTown2
@@ -582,21 +487,33 @@ begin loop
             enable migration from JapaneseTown2 to JapaneseCapital
             enable migration from JapaneseTown2 to PlayerTown
         end if
+    else
+        enable migration from JapaneseTown2 to MinorTown1
+        enable migration from JapaneseTown2 to MinorTown2
+        enable migration from JapaneseTown2 to MinorTown3
+        enable migration from JapaneseTown2 to MinorTown4
+        enable migration from JapaneseTown2 to MinorTown5
+        enable migration from JapaneseTown2 to MinorTown6
+        enable migration from JapaneseTown2 to JapaneseTown1
+        enable migration from JapaneseTown2 to JapaneseCapital
+        enable migration from JapaneseTown2 to PlayerTown
     end if
     
     if isConverted9 != 0 and i == 0
-        if PLAYER of JapaneseCapital == 0 or get town JapaneseCapital is migrating to == PlayerTown
-            i = 1
-            TownsConverted = TownsConverted + 1
-            if isConverted9 == 1
-                TownsAggressiveConverted = TownsAggressiveConverted + 1
-            elsif isConverted9 == 2
-                TownsPeacefulConverted = TownsPeacefulConverted + 1
+        if variable get town JapaneseCapital status == variable TOWN_STATUS_MIGRATION_STARTED or PLAYER of JapaneseCapital == 0
+            if PLAYER of get town JapaneseCapital is migrating to == 0 or PLAYER of JapaneseCapital == 0
+                i = 1
+                TownsConverted = TownsConverted + 1
+                if isConverted9 == 1
+                    TownsAggressiveConverted = TownsAggressiveConverted + 1
+                elsif isConverted9 == 2
+                    TownsPeacefulConverted = TownsPeacefulConverted + 1
+                end if
             end if
         end if
     end if
 
-    if isConverted9 != 0
+    if isConverted9 == 1
         if PLAYER of JapaneseCapital == 1
             disable migration from JapaneseCapital to MinorTown1
             disable migration from JapaneseCapital to MinorTown2
@@ -618,6 +535,16 @@ begin loop
             enable migration from JapaneseCapital to JapaneseTown2
             enable migration from JapaneseCapital to PlayerTown
         end if
+    else
+        enable migration from JapaneseCapital to MinorTown1
+        enable migration from JapaneseCapital to MinorTown2
+        enable migration from JapaneseCapital to MinorTown3
+        enable migration from JapaneseCapital to MinorTown4
+        enable migration from JapaneseCapital to MinorTown5
+        enable migration from JapaneseCapital to MinorTown6
+        enable migration from JapaneseCapital to JapaneseTown1
+        enable migration from JapaneseCapital to JapaneseTown2
+        enable migration from JapaneseCapital to PlayerTown
     end if
     
 end loop
