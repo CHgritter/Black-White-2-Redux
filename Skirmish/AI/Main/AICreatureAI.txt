@@ -2,14 +2,16 @@
 //          Skirmish AI Escalation
 //    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
+//    Start date:     20.10.18            By: Boxhead
+//    Update date:    31.10.18            By: Boxhead
 ///////////////////////////////////////////////////////////////////////////////
 
-define script SK_AICreatureTown(PlayerID)
+define script SK_AICreatueTown(PlayerID)
 define script SK_AICreature(PlayerID,AICreature)
 
 global AICHomeTown[SK_MaxPlayers]
 
-begin script SK_AICreatureTown(PlayerID)
+begin script SK_AICreatueTown(PlayerID)
 
     AITown[SK_MaxTowns]
     Counter = 0
@@ -34,7 +36,7 @@ begin loop
     Counter += number from 1 to NumberOfTowns
 end loop
 
-end script SK_AICreatureTown
+end script SK_AICreatueTown
 
 begin script SK_AICreature(PlayerID,AICreature)
 
@@ -51,7 +53,7 @@ begin script SK_AICreature(PlayerID,AICreature)
 
 start
 
-run background script SK_AICreatureTown(PlayerID)
+run background script SK_AICreatueTown(PlayerID)
 
 wait 10 seconds
 
@@ -64,12 +66,13 @@ begin loop
     end if
 
     if PlayerID != PlayerCounter
-        Counter = number from 0 to SK_MaxTowns
-
         AITown[Counter] = get town with id Counter
         TownCentre = get building ABODE_NUMBER_TOWN_CENTRE in AITown[Counter] min built 1.0
         myPlatoon = get platoon of player PlayerID nearest {AITown[Counter]} radius 1000
 
+        if Counter > SK_MaxTowns
+            Counter = 0
+        end if
         if HEALTH of AICreature == 0.00
             wait until HEALTH of AICreature > 0.00
             HEALTH of AICreature = 1.0
@@ -116,6 +119,8 @@ begin loop
 
             end if
         end if
+
+        Counter++
     end if
 
     PlayerCounter++
