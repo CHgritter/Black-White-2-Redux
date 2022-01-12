@@ -2998,8 +2998,8 @@ start
 
     LC11_LargeSiegeStartAttack = 1
 
-    //start dynamic music
-    //set dynamic music "small" loop -1 urgent
+    start dynamic music
+    set dynamic music "small" loop -1 urgent
 
     wait 70 seconds
     SteelYourself = 1
@@ -3010,7 +3010,7 @@ start
     run background script LC11_LargeSiegePlatoonManager
 
     wait 7.5 seconds
-    //set dynamic music "largeevent1" loop -1 urgent
+    set dynamic music "largeevent1" loop -1 urgent
 
     wait number from 15 to 30 seconds
 
@@ -3019,7 +3019,7 @@ start
         request dialogue EVENT_TYPE_GENERIC_PLAYERS_TOWN_UNDER_ATTACK
     end dialogue
 
-    //set dynamic music "medium" loop -1
+    set dynamic music "medium" loop -1
 
     wait 10 seconds
     wait until dialogue ready
@@ -3051,9 +3051,9 @@ start
         say "BW2T_SCRIPT_10FINAL_STORYLINE_8"
     end dialogue
 
-    //set dynamic music "smallevent4" loop 0 urgent
+    set dynamic music "smallevent4" loop 0 urgent
     wait 8 seconds
-    //set dynamic music "medium" loop -1
+    set dynamic music "medium" loop -1
 
     if Difficulty == 1
         wait 60 seconds
@@ -3072,20 +3072,14 @@ start
     LC11_LargeSiegeRetreat = 1
     play string sound "AZTECWARNINGHORN"
     wait 3 seconds
-    //STOP MUSIC HERE
-    stop music with fadetime 5
-    //TODO: End Battle music
-    //start dynamic music
-    //set dynamic music "small" loop -1 urgent
-    wait 1 seconds
-    //set dynamic music "smallendofbattle" loop -1 urgent
+    set dynamic music "smallendofbattle" loop 0 urgent
     wait 45 seconds
     play string sound "AZTECWARNINGHORN"
-    //land11mixer = create mixer
-    //set mixer land11mixer channel AUDIO_MIXER_CHANNEL_MUSIC to 0.0 with fadetime 10
+    land11mixer = create mixer
+    set mixer land11mixer channel AUDIO_MIXER_CHANNEL_MUSIC to 0.0 with fadetime 10
     wait 10 seconds 
-    //stop dynamic music
-    //destroy mixer land11mixer with fadetime 3
+    stop dynamic music
+    destroy mixer land11mixer with fadetime 3
     wait 20 seconds
 
     GB_DialogueIsRunning = 1
