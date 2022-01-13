@@ -33,6 +33,8 @@ global IntroFinished = 0
 global DeleteWeather = 0
 global AttackingPlatoons = 0
 global LC12_LargeSiegeLaunchAttack = 0
+global LC12_LargeSiegeStartAttack = 0
+global LC12_LargeSiegeRetreat = 0
 global AztecPrisonDestroyed = 0
 global AIHurricane = 0
 global GenericCommentTimer = 0
@@ -44,6 +46,8 @@ global LandWon = 0
 global PlayerAlignmentFinal = 0
 global StaticPlatoonsActionTimer = 0
 global StaticPlatoonsActive = 0
+global RndAttack[5]
+global ScriptedAttack[5]
 
 global PlayerTown = 0
 global MinorTown1 = 0
@@ -62,7 +66,7 @@ global MINOR_TOWN3_IMPRESSIVENESS = 18000
 global MINOR_TOWN4_IMPRESSIVENESS = 24000
 global AZTECTOWN1_IMPRESSIVENESS = 24500
 global AZTECTOWN2_IMPRESSIVENESS = 20000
-global AZTECCAPITAL_IMPRESSIVENESS = 44000
+global AZTECCAPITAL_IMPRESSIVENESS = 31000
 
 global AttackNearestTownTimer = 0
 global LC12_RecruitTimer1 = 0
@@ -80,13 +84,13 @@ start
     GenericCommentTimer = create timer for 0 seconds
     UnitDeadTimer = create timer for 200 seconds
 
-    MINOR_TOWN1_IMPRESSIVENESS = MINOR_TOWN1_IMPRESSIVENESS
-    MINOR_TOWN2_IMPRESSIVENESS = MINOR_TOWN2_IMPRESSIVENESS
-    MINOR_TOWN3_IMPRESSIVENESS = MINOR_TOWN3_IMPRESSIVENESS *  ImpressivenessModifier
-    MINOR_TOWN4_IMPRESSIVENESS = MINOR_TOWN4_IMPRESSIVENESS *  ImpressivenessModifier
-    AZTECTOWN1_IMPRESSIVENESS = AZTECTOWN1_IMPRESSIVENESS *  ImpressivenessModifier
-    AZTECTOWN2_IMPRESSIVENESS = AZTECTOWN2_IMPRESSIVENESS *  ImpressivenessModifier
-    AZTECCAPITAL_IMPRESSIVENESS = AZTECCAPITAL_IMPRESSIVENESS *  ImpressivenessModifier
+    MINOR_TOWN1_IMPRESSIVENESS = MINOR_TOWN1_IMPRESSIVENESS * PLAYEREIMPRESSIVENESSMULTIPLIER
+    MINOR_TOWN2_IMPRESSIVENESS = MINOR_TOWN2_IMPRESSIVENESS * PLAYEREIMPRESSIVENESSMULTIPLIER
+    MINOR_TOWN3_IMPRESSIVENESS = MINOR_TOWN3_IMPRESSIVENESS * ImpressivenessModifier * PLAYEREIMPRESSIVENESSMULTIPLIER
+    MINOR_TOWN4_IMPRESSIVENESS = MINOR_TOWN4_IMPRESSIVENESS * ImpressivenessModifier * PLAYEREIMPRESSIVENESSMULTIPLIER
+    AZTECTOWN1_IMPRESSIVENESS = AZTECTOWN1_IMPRESSIVENESS * ImpressivenessModifier * PLAYEREIMPRESSIVENESSMULTIPLIER
+    AZTECTOWN2_IMPRESSIVENESS = AZTECTOWN2_IMPRESSIVENESS * ImpressivenessModifier * PLAYEREIMPRESSIVENESSMULTIPLIER
+    AZTECCAPITAL_IMPRESSIVENESS = AZTECCAPITAL_IMPRESSIVENESS * ImpressivenessModifier * PLAYEREIMPRESSIVENESSMULTIPLIER
 
     SecondPlaythrough = persistent data "SECOND_PLAYTHROUGH"
     HardMode = persistent data "HARD_MODE"
@@ -103,6 +107,11 @@ start
         AZTECCAPITAL_IMPRESSIVENESS += 4000
     end if
 
+    ScriptedAttack[0] = 0
+    ScriptedAttack[1] = 0
+    ScriptedAttack[2] = 0
+    ScriptedAttack[3] = 0
+    ScriptedAttack[4] = 0
 
     if HardMode == 1
         NORSERECRUITMENTMODIFIER = 0.75

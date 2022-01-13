@@ -19,7 +19,7 @@ run script Land12Script
 begin script Land12Script
 
 start
-    
+
     AISpellsActivated = 0
 
     set toolbar state to MENU_TOOLBAR_STATE_CLOSED
@@ -199,6 +199,11 @@ start
     run background script LC12_Hurricane
     run background script LC12_SetupPrison
     run background script LC12_LavaPuddles
+    run background script AttackRndAttackLogic(0)
+    run background script AttackRndAttackLogic(1)
+    run background script AttackRndAttackLogic(2)
+    run background script AttackSyncTimerLogic
+    run background script AAV_AIVillagers(AAV_AZTEC)
 
     //Weather Scripts
     run background script LC12_SetupWeather(3,marker at {PlayerTown})
@@ -392,12 +397,6 @@ start
         until DeleteWeather == 1
     end loop
 
-    begin loop
-        wait until DeleteWeather == 1 or number from 90 to 240 seconds
-        set lightning strike at {Weather[0]} + {number from -50 to 50,number from -50 to 50} from Weather[0] scale 0.66
-        until DeleteWeather == 1
-    end loop
-
     wait number from 20 to 60 seconds
 
     while AmountInit > 0
@@ -429,15 +428,15 @@ start
 
 Counter = 0
 begin loop
-    while Counter != 75
-        if Men[Counter] not exists and Counter != 75
+    while Counter != 50
+        if Men[Counter] not exists and Counter != 50
             Men[Counter] = create random villager of tribe TRIBE_TYPE_GREEK at {AztecPrison} + {number from -12 to 12, 0, number from -12 to 12}//create VILLAGER VILLAGER_INFO_JAPANESE_FORESTER_MALE at {1013.581, 132.333, 2002.798} + {number from -3 to 3, 0, number from -3 to 3}
             release Men[Counter]
             attach Men[Counter] to AztecPrison
             Counter++
         end if
     end while
-    until Counter == 75
+    until Counter == 50
 end loop
 
 end script LC12_SetupPrison
