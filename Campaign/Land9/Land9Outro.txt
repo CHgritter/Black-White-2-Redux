@@ -12,6 +12,7 @@ define script DoLand9OutroObjectives
 
 begin script LC9_Outro
 
+Earthquaketown = 0
 AztekTown = 0
 ConversionMethod = 0
 AztekGuy = 0
@@ -30,7 +31,9 @@ stop script "SavePersistentDataSetData"
 set persistent data "PREVLAND_OVER" to 1
 run script SavePersistentDataGetData
 
+Earthquaketown = get town with id 16
 set town PlayerTown capture all enemy towns
+set Earthquaketown player 7 relative belief 2.0
 disable dialogue manager
 disable game can be lost
 //increment tribute by 250000

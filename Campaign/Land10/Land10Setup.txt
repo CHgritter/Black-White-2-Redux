@@ -222,7 +222,7 @@ start
 
     run background script LC10_Nymphs
 
-    wait until get DisbelieverTownTimer time remaining <= 0 and get distance from camera position to {DBPos} > 300 and not {DBPos} viewed
+    wait until get DisbelieverTownTimer time remaining <= 0 and get distance from camera position to {DBPos} > 300 and not {DBPos} viewed or PLAYER of AztecTown1 != 1 and get distance from camera position to {DBPos} > 300 and not {DBPos} viewed
     run background script LC10_DisbelievingVillage
 
     wait until TownsConverted >= 1
